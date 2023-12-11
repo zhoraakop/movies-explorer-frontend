@@ -1,0 +1,10 @@
+.content__about {
+    max-width: 1200px;
+    max-height: 493px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background: #272727;
+    margin: 20px auto 0 auto;
+    color: white;
+}

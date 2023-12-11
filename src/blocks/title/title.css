@@ -1,0 +1,17 @@
+.title {
+    color: white;
+    text-align: left;
+    height: 50px;
+    margin: 0;
+    border-bottom: 1px solid white;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}

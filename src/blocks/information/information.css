@@ -1,0 +1,9 @@
+.information {
+    max-width: 1140px;
+    padding-bottom: 110px;
+    margin: 110px auto 0 auto;
+    display: grid;
+    grid-template-columns: 228px 322px repeat(2, 1fr);
+    grid-template-rows: 50px 93px 66px 146px 30px;
+
+}
