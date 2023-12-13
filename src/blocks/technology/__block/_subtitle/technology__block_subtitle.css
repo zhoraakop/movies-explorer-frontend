@@ -1,0 +1,11 @@
+.technology__block_subtitle {
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: -0.56px;
+    max-width: 460px;
+    margin: 26px auto 0 auto;
+}

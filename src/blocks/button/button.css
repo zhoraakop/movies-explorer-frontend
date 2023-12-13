@@ -1,4 +1,4 @@
-.content__about_navigation {
+.button {
     font-family: Inter;
     font-size: 12px;
     font-style: normal;
@@ -16,5 +16,14 @@
     margin-right: 10px;
     padding: 0;
     cursor: pointer;
+}
+
+.technology__block-information > .button-information > .button{
+    height: 60px;
+    width: 90px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.56px;
 }
 

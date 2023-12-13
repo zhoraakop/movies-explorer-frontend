@@ -1,0 +1,9 @@
+.button-information {
+    display: flex;
+    justify-content: center;
+    margin: 150px 0 30px 0;
+}
+
+.technology__block-information > .button-information{
+    margin: 100px 0 0 0;
+}

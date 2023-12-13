@@ -1,0 +1,12 @@
+.technology__block_title {
+    text-align: center;
+    text-align: center;
+    font-family: Inter;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 58px; /* 116% */
+    letter-spacing: -2px;
+    max-width: 730px;
+    margin: 90px auto 0 auto;
+}
