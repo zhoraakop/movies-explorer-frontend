@@ -1,8 +1,11 @@
-.github{
+.portfolio__block_github{
     font-family: Inter;
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     margin: 0;
+    text-transform: none;
+    text-decoration: none;
+    color: white;
 }

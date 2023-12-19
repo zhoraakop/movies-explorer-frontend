@@ -27,5 +27,13 @@
 @import url(./blocks//portfolio/__block/_title/portfolio__block_title.css);
 @import url(./blocks//portfolio/__block/_subtitle/portfolio__block_subtitle.css);
 @import url(./blocks/portfolio/__block/_quote/portfolio__block_quote.css);
-@import url(./blocks/github/github.css);
+@import url(./blocks/portfolio/__block/_github/portfolio__block_github.css);
 @import url(./blocks/portfolio/__block/_image/portfolio__block_image.css);
+@import url(./blocks/portfolio/__block/_url/portfolio__block_url.css);
+@import url(./blocks/portfolio/__block/_url/portfolio__block_url-image.css);
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__block/footer__block.css);
+@import url(./blocks/footer/__title/footer__title.css);
+@import url(./blocks/footer/__block/_github/footer__block_github.css);
+@import url(./blocks/footer/__block/_yandex/footer__block_yandex.css);
+@import url(./blocks/footer/__block/_year/footer__block_year.css);

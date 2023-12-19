@@ -1,0 +1,15 @@
+.footer__block_github{
+    text-align: right;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    position: absolute;
+    right: 0;
+    text-transform: none;
+    text-decoration: none;
+    color: white;
+    margin-top: 13px;
+}
