@@ -1,0 +1,6 @@
+.movies__card{
+    display: flex;
+    width: 360px;
+    flex-wrap: wrap;
+    position: relative;
+}

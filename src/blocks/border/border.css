@@ -1,0 +1,13 @@
+.border{
+    margin: 40px auto 0 auto;
+    border-top: 1px solid #424242;
+    max-width: 1140px;
+}
+
+.profile .border{
+    margin: 0;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}

@@ -1,0 +1,22 @@
+.header__button-movies{
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 18px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 16px;
+    padding: 0;
+    transition: opacity .2s linear;
+}
+
+.header__button-movies:hover{
+    opacity: 0.8;
+}
+
+.header__button-movies:nth-child(n + 3){
+    margin-right: 364px;
+}

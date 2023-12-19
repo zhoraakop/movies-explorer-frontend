@@ -1,0 +1,8 @@
+.profile__form{
+    width: 410px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto-fill);
+
+}

@@ -16,6 +16,11 @@
     margin-right: 10px;
     padding: 0;
     cursor: pointer;
+    transition: opacity .2s linear;
+}
+
+.button :hover{
+    opacity: 0.8;
 }
 
 .technology__block-information > .button-information > .button{

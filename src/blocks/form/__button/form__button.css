@@ -1,0 +1,10 @@
+.form__button{
+    background-color: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    margin-left: 10px;
+    cursor: pointer;
+    align-self: center;
+    max-height: 44px;
+}

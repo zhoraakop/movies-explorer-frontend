@@ -1,0 +1,21 @@
+.header__button-profile{
+    border: none;
+    background: #313131;
+    color: white;
+    width: 100px;
+    height: 32px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 16px;
+    margin-right: 70px;
+    transition: opacity .2s linear;
+}
+
+.header__button-profile:hover{
+    opacity: 0.8;
+}
