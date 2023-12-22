@@ -8,3 +8,20 @@
     margin: 20px auto 0 auto;
     color: white;
 }
+
+@media screen and (max-width: 1023px) {
+    .content__about{
+        max-width: 728px;
+        max-height: 834px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .content__about{
+        margin-top: 14px;
+        max-width: 292px;
+        max-height: 586px;
+    }
+    
+}

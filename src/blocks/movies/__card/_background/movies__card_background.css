@@ -1,0 +1,15 @@
+.movies__card_background{
+    background-color: #2F2F2F;
+    border-radius: 3px;
+    width: 52px;
+    height: 18px;
+    margin-left: 30px;
+}
+
+@media screen and (max-width: 1023px) {
+    .movies__card_background{
+        margin-left: 37px;
+
+    }
+    
+}

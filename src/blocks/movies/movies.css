@@ -7,3 +7,15 @@
     column-gap: 30px;
     row-gap: 58px;
 }
+
+@media screen and (max-width: 1023px) {
+    .movies{
+        max-width: 710px;
+        grid-template-columns: repeat(2, 339fr);
+        grid-template-rows: repeat(auto-fill, 1fr);
+        row-gap: 47px;
+        column-gap: 30px;
+
+    }
+    
+}

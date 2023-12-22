@@ -1,0 +1,9 @@
+.popup__content{
+    width: 520px;
+    height: 1024px;
+    background: #202020;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

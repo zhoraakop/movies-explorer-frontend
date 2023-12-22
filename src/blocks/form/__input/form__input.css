@@ -7,3 +7,10 @@
     border: 0;
     color: white;
 }
+
+@media screen and (max-width: 1023px) {
+    .form__input{
+        max-width: 654px;
+    }
+    
+}

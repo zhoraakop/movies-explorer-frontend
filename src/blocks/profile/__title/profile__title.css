@@ -9,3 +9,11 @@
     margin-top: 74px;
     margin-bottom: 123px;
 }
+
+@media screen and (max-width: 1023px) {
+    .profile__title{
+        margin-top: 236px;
+        margin-bottom: 96px;
+    }
+    
+}

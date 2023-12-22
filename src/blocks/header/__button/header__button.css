@@ -27,3 +27,22 @@
     border: 1px solid #3DDC84;
     margin-right: 70px;
 }
+
+@media screen and (max-width: 1023px) {
+    .header__button:last-child{
+        margin-right: 30px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .header__button{
+        font-size: 10px;
+        padding-right: 14px;
+    }
+    .header__button:last-child{
+        width: 54px;
+        height: 26px;
+        margin-right: 14px;
+    }
+}

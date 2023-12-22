@@ -1,0 +1,4 @@
+.technology__information {
+    display: flex;
+    flex-direction: column;
+}

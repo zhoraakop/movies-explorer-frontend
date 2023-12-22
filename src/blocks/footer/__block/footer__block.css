@@ -3,3 +3,12 @@
     color: white;
     position: relative;
 }
+
+@media screen and (max-width: 767px) {
+    .footer__block{
+        height: calc(253px - 115px);
+        justify-content: center;
+        align-items: flex-end;
+    }
+    
+}

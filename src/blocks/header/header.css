@@ -7,3 +7,23 @@
     justify-content: flex-end;
     align-items: center;
 }
+
+.header.register{
+    height: 217px;
+}
+
+@media screen and (max-width: 1023px) {
+    .header{
+        max-width: 768px;
+    }
+    .header.register{
+        height: 379px;
+        max-width: 768px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header{
+        max-width: 320px;
+    }
+}

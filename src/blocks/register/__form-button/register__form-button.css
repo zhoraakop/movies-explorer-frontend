@@ -1,0 +1,29 @@
+.register__form-button {
+  border-radius: 3px;
+  background: #4285f4;
+  width: 100%;
+  height: 45px;
+  flex-shrink: 0;
+  border: 0;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 70px;
+  transition: opacity .2s linear;
+}
+
+.login .register__form-button{
+    margin-top: 180px;
+}
+
+.login .register__form-button:hover{
+  opacity: .8;
+}
+
+.register__form-button:hover{
+  opacity: .8;
+
+}

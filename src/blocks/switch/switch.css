@@ -6,3 +6,10 @@
 }
 
 .switch input {display:none;}
+
+@media screen and (max-width: 1023px) {
+    .switch{
+        width: 34px;
+    }
+    
+}

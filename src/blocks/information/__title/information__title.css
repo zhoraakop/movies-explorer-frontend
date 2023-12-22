@@ -16,3 +16,31 @@
     grid-column-start: 3;
     grid-column-end: 5;
 }
+
+@media screen and (max-width: 1023px) {
+    .information__title{
+        font-size: 22px;
+        letter-spacing: -0.88px;
+        margin: 70px 0 0 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .information__title{
+        margin-top: 60px;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+
+    }
+    .information__title:last-of-type{
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+    }
+    
+}

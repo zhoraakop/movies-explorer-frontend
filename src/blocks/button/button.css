@@ -13,13 +13,12 @@
     border: 1px solid #303030;
     align-self: center;
     flex-direction: row;
-    margin-right: 10px;
     padding: 0;
     cursor: pointer;
     transition: opacity .2s linear;
 }
 
-.button :hover{
+.button:hover{
     opacity: 0.8;
 }
 
@@ -30,5 +29,24 @@
     font-weight: 400;
     line-height: normal;
     letter-spacing: -0.56px;
+}
+
+
+@media screen and (max-width: 1023px) {
+    .technology__information > .button-information > .button{
+        height: 57px;
+        width: 84px;
+        font-size: 12px;
+        letter-spacing: -0.48px;
+    }
+    
+}
+
+@media screen and (max-width: 787px) {
+    .button{
+        height: 26px;
+        width: 82px;
+        font-size: 10px;
+    }
 }
 

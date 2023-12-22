@@ -1,16 +1,16 @@
 import Portfolio from "./Portfolio";
-import portfolio from "../images/portfolio.jpg";
 
 const AboutMe = () => {
   return (
     <section className="portfolio">
       <h2 className="title">Студент</h2>
       <div className="portfolio__block">
-        <h2 className="portfolio__block_title">Георгий</h2>
-        <h3 className="portfolio__block_subtitle">
+        <div className="portfolio__block-image"></div>
+        <h2 className="portfolio__block-title">Георгий</h2>
+        <h3 className="portfolio__block-subtitle">
           Начинающий Фронтенд-разработчик, 20 лет
         </h3>
-        <p className="portfolio__block_quote">
+        <p className="portfolio__block-quote">
           Я родился в Белгороде, переехал в Санкт-Петербург и живу сейчас в
           общежитии. Учусь на факультете защиты информации в СПБГУАП. Я люблю
           слушать музыку, а ещё профессиально занимался плаванием и спорт
@@ -20,13 +20,12 @@ const AboutMe = () => {
         </p>
         <a
           href="https://github.com/zhoraakop"
-          className="portfolio__block_github"
+          className="portfolio__block-github"
         >
           Github
         </a>
-        <img className="portfolio__block_image" src={portfolio}></img>
-        <p className="portfolio__block_title">Портфолио</p>
-        <Portfolio></Portfolio>
+        <p className="portfolio__block-title">Портфолио</p>
+        <Portfolio />
       </div>
     </section>
   );

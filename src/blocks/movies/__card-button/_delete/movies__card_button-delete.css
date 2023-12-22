@@ -1,0 +1,13 @@
+.movies__card-button_delete{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    cursor: pointer;
+    visibility: hidden;
+    transition: opacity .2s linear;
+}
+
+.saved .movies__card-button_delete:hover{
+    visibility: visible;
+    opacity: 0.8;
+}

@@ -3,3 +3,27 @@
     left: 70px;
     position: absolute;
 }
+
+.register .header__image{
+    top: 70px;
+    left: 442px;
+}
+
+@media screen and (max-width: 1023px) {
+    .header__image{
+        top:18px;
+        left: 30px;
+    }
+    .register .header__image{
+        top: 232px;
+        left: 186px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .header__image{
+        top: 18px;
+        left: 14px;
+    }
+}

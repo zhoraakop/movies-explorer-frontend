@@ -15,13 +15,13 @@ import film_twelve from "../images/pic__COLOR12_pic.svg";
 function MoviesCard() {
   return (
     <div className="movies__card">
-      <img alt="Фильм" className="movies__card_image" src={film_one}></img>
-      <h2 className="movies__card_title">33 слова о дизайне</h2>
-      <div className="movies__card-background">
-        <p className="movies__card_subtitle">1ч 17м</p>
+      <img alt="Фильм" className="movies__card-image" src={film_one}></img>
+      <h2 className="movies__card-title">33 слова о дизайне</h2>
+      <div className="movies__card_background">
+        <p className="movies__card-subtitle">1ч 17м</p>
       </div>
-      <img className="movies__card_button-delete" src={deleteButton}></img>
-      <button className="movies__card_button">Сохранить</button>
+      <img className="movies__card-button_delete" src={deleteButton}></img>
+      <button className="movies__card-button">Сохранить</button>
     </div>
   );
 }

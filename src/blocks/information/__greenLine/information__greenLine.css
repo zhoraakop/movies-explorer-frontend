@@ -9,10 +9,31 @@
     font-weight: 400;
     line-height: normal;
     background-color: #3DDC84;
-    width: 228px;
+    max-width: 228px;
     height: 26px;
     flex-shrink: 0;
     margin: 0;
     margin-top: 110px;
     padding-top: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+    .information__greenLine{
+        max-width: 140px;
+        margin-top: 93px;
+        height: 28px;
+        padding-top: 8px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .information__greenLine{
+        max-width: 100px;
+        margin-top: 60px;
+        height: 25px;
+        padding-top: 10px;
+        font-size: 11px;
+    }
+    
 }
