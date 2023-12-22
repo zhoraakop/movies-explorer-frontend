@@ -15,7 +15,8 @@ function App() {
   return (
     <div className="page">
       <Header />
-      <Main/>
+      <SearchForm />
+      <Movies/>
       <Footer />
     </div>
   );

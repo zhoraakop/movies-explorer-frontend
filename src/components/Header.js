@@ -1,7 +1,7 @@
 import logo from "../images/logo.svg";
 const log = false;
 const reg = false;
-const logReg = false;
+const logReg = true;
 
 
 function Header() {

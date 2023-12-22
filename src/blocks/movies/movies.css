@@ -1,11 +1,15 @@
 .movies{
     max-width: 1140px;
-    margin: 70px auto 240px auto;
+    margin: 70px auto 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(auto-fill, 1fr);
     column-gap: 30px;
     row-gap: 58px;
+}
+
+.saved .movies{
+    margin-bottom: 240px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -15,8 +19,10 @@
         grid-template-rows: repeat(auto-fill, 1fr);
         row-gap: 47px;
         column-gap: 30px;
-        margin-bottom: 175px;
 
+    }
+    .saved .movies{
+        margin-bottom: 175px;
     }
     
 }
@@ -29,6 +35,10 @@
         row-gap: 36px;
         column-gap: 0;
 
+    }
+
+    .saved .movies{
+        margin-bottom: 153px;
     }
     
 }
