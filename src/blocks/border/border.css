@@ -19,3 +19,11 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .border{
+        max-width: 292px;
+
+    }
+    
+}

@@ -14,3 +14,10 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .search-form__subtitle{
+        font-size: 11px;
+    }
+    
+}

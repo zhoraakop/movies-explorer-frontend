@@ -25,3 +25,11 @@
 .popup__profile-button:hover{
     opacity: 0.8;
 }
+
+@media screen and (max-width: 767px) {
+    .popup__profile-button{
+        bottom: 46px;
+        left: 110px;
+    }
+    
+}

@@ -16,7 +16,7 @@
 }
 
 .login .register__form-button{
-    margin-top: 180px;
+    margin-top: 157px;
 }
 
 .login .register__form-button:hover{
@@ -26,4 +26,15 @@
 .register__form-button:hover{
   opacity: .8;
 
+}
+
+@media screen and (max-width: 767px) {
+  .register__form-button{
+      margin-top: 157px;
+      font-size: 12px;
+      font-weight: 500;
+  }
+  .login .register__form-button{
+    margin-top: 245px;
+}
 }

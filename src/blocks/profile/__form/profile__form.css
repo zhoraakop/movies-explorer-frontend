@@ -6,3 +6,10 @@
     grid-template-rows: repeat(2, auto-fill);
 
 }
+
+@media screen and (max-width: 767px) {
+    .profile__form{
+        width: 260px;
+    }
+    
+}

@@ -4,7 +4,7 @@ html, body {
 }
 
 .page{
-    min-width: 100vh;
+    max-width: 100%;
     min-height: 100vh;
     background-color: #202020;
     margin: 0 auto;

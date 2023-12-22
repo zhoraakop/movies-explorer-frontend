@@ -27,3 +27,12 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .register__form-questian{
+        font-size: 12px;
+        margin-bottom: 30px;
+        margin-top: 14px;
+    }
+    
+}

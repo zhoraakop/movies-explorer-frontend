@@ -1,5 +1,6 @@
 import film_one from "../images/pic__COLOR_pic.svg";
 import deleteButton from "../images/deleteButton.svg";
+import okButton from "../images/save3.svg";
 import film_two from "../images/pic__COLOR2_pic.svg";
 import film_three from "../images/pic__COLOR3_pic.svg";
 import film_four from "../images/pic__COLOR4_pic.svg";
@@ -20,6 +21,7 @@ function MoviesCard() {
       <div className="movies__card_background">
         <p className="movies__card-subtitle">1ч 17м</p>
       </div>
+      <img className="movies__card-button_ok" src={deleteButton}></img>
       <img className="movies__card-button_delete" src={deleteButton}></img>
       <button className="movies__card-button">Сохранить</button>
     </div>

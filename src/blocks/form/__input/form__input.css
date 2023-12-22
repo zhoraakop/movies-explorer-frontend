@@ -14,3 +14,11 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .form__input{
+        height: 44px;
+        max-width: 238px;
+    }
+    
+}

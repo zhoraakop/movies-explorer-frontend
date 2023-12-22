@@ -13,11 +13,11 @@
 
 @media screen and (max-width: 767px) {
     .footer__block-yandex{
-        top: 30px;
-        bottom: 92px;
-        right: 105px;
-        left: 104px;
-        margin: 0;
+        font-size: 12px;
+        margin-top: 30px;
+        margin-bottom: 12px;
+        position: unset;
+        text-align: center;
     }
     
 }

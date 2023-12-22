@@ -16,10 +16,9 @@
 
 @media screen and (max-width: 767px) {
     .footer__block-github{
-        top: 57px;
-        bottom: 65px;
-        right: 141px;
-        left: 140px;
+        font-size: 12px;
+        position: unset;
+        text-align: center;
         margin: 0;
     }
     

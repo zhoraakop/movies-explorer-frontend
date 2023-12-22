@@ -21,3 +21,13 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .movies__card-image{
+        max-height: 168px;
+        max-width: 300px;
+        margin-bottom: 16px;
+
+    }
+    
+}

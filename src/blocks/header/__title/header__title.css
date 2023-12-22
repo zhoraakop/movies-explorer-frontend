@@ -17,3 +17,14 @@
     
     
 }
+
+@media screen and (max-width: 767px) {
+    .register .header__title{
+        margin-top: 50px;
+        text-align: center;
+        margin-bottom: 80px;
+        max-width: 260px;
+    }
+    
+    
+}

@@ -24,3 +24,12 @@
     }
     
 }
+
+@media screen and (max-width: 1023px) {
+    .error__button{
+        font-size: 12px;
+        margin-top: 284px;
+        margin-bottom: 30px;
+    }
+    
+}

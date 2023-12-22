@@ -18,3 +18,13 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .error__title{
+        margin-top: 329px;
+        margin-bottom: 10px;
+        width: 300px;
+        font-size: 80px;
+    }
+    
+}

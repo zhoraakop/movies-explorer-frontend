@@ -6,10 +6,10 @@ function Footer() {
       </h2>
       <div className="footer__block">
         <p className="footer__block-year">© 2023</p>
-        <p className="footer__block-yandex">Яндекс.Практикум</p>
         <a href="https://github.com/zhoraakop" className="footer__block-github">
           Github
         </a>
+        <p className="footer__block-yandex">Яндекс.Практикум</p>
       </div>
     </footer>
   );

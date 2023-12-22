@@ -23,6 +23,12 @@
 @media screen and (max-width: 1023px) {
     .movies-add__button{
         margin-top: 60px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .movies-add__button{
+        width: 240px;
 
     }
     

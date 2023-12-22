@@ -13,3 +13,11 @@
     }
     
 }
+
+@media screen and (max-width: 767px) {
+    .movies__card_background{
+        margin-left: 8px;
+
+    }
+    
+}
