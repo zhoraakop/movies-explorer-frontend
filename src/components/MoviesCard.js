@@ -21,8 +21,8 @@ function MoviesCard() {
       <div className="movies__card_background">
         <p className="movies__card-subtitle">1ч 17м</p>
       </div>
-      <img className="movies__card-button_ok" src={deleteButton}></img>
-      <img className="movies__card-button_delete" src={deleteButton}></img>
+      <img alt="Галочка" className="movies__card-button_ok" src={deleteButton}></img>
+      <img alt="Удаление" className="movies__card-button_delete" src={deleteButton}></img>
       <button className="movies__card-button">Сохранить</button>
     </div>
   );
