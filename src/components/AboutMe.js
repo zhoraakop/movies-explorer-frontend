@@ -5,12 +5,12 @@ const AboutMe = () => {
     <section className="portfolio" id="portfolio">
       <h2 className="title">Студент</h2>
       <div className="portfolio__block">
-        <div className="portfolio__block-image"></div>
-        <h2 className="portfolio__block-title">Георгий</h2>
-        <h3 className="portfolio__block-subtitle">
+        <div className="portfolio__image-block"></div>
+        <h2 className="portfolio__title-block">Георгий</h2>
+        <h3 className="portfolio__subtitle-block">
           Начинающий Фронтенд-разработчик, 20 лет
         </h3>
-        <p className="portfolio__block-quote">
+        <p className="portfolio__quote-block">
           Я родился в Белгороде, переехал в Санкт-Петербург и живу сейчас в
           общежитии. Учусь на факультете защиты информации в СПБГУАП. Я люблю
           слушать музыку, а ещё профессиально занимался плаванием и спорт
@@ -19,12 +19,13 @@ const AboutMe = () => {
           компании.
         </p>
         <a
+          target="blank"
           href="https://github.com/zhoraakop"
-          className="portfolio__block-github"
+          className="portfolio__github-block"
         >
           Github
         </a>
-        <p className="portfolio__block-title">Портфолио</p>
+        <p className="portfolio__title-block">Портфолио</p>
         <Portfolio />
       </div>
     </section>

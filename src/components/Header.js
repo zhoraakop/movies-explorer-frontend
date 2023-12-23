@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.svg";
 const log = false;
 const reg = false;
-const logReg = false;
+const logReg = true;
 
 function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
   return (
@@ -43,13 +43,13 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
           </Link>
           <button
             onClick={onClickMenuIsOpen}
-            className="header__button-menu"
+            className="header__menu-button"
           ></button>
           <NavLink
             to="/movies"
             className={({ isActive }) =>
-              `header__button-movies ${
-                isActive ? "header__button-movies_active" : ""
+              `header__movies-button ${
+                isActive ? "header__movies-button_active" : ""
               }`
             }
           >
@@ -58,14 +58,14 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
           <NavLink
             to="/saved-movies"
             className={({ isActive }) =>
-              `header__button-movies ${
-                isActive ? "header__button-movies_active" : ""
+              `header__movies-button ${
+                isActive ? "header__movies-button_active" : ""
               }`
             }
           >
             Сохраненные фильмы
           </NavLink>
-          <Link to="/profile" className="header__button-profile">
+          <Link to="/profile" className="header__profile-button">
             Аккаунт
           </Link>
           {console.log(onClickMenu)}

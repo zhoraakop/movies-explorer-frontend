@@ -1,0 +1,31 @@
+.login__questian{
+    color: #8B8B8B;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 16px 0 0 0;
+    
+}
+
+.login__questian a{
+    text-decoration: none;
+    text-transform: none;
+    color: #4285F4;
+    transition: opacity .2s linear;
+}
+
+.login__questian a:hover{
+    opacity: .8;
+}
+
+
+@media screen and (max-width: 767px) {
+    .login__questian{
+        font-size: 12px;
+        margin-top: 14px;
+    }
+    
+}

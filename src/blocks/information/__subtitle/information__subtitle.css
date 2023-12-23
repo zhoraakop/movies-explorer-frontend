@@ -11,6 +11,10 @@
     max-height: 40px;
 }
 
+.information__subtitle:nth-child(n + 5){
+    padding-left: 40px;
+}
+
 .information__subtitle:first-of-type{
     grid-column-start: 1;
     grid-column-end: 3;

@@ -1,0 +1,33 @@
+.movies__image-card{
+    object-fit: cover;
+    max-height: 201px;
+    margin-bottom: 14px;
+    cursor: pointer;
+}
+
+.all .movies__image-card:hover ~ .movies__card-button{
+    visibility: visible;
+}
+
+.saved .movies__image-card:hover ~ .movies__card-button_delete{
+    visibility: visible;
+}
+
+@media screen and (max-width: 1023px) {
+    .movies__image-card{
+        max-height: 190px;
+        margin-bottom: 25px;
+
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .movies__image-card{
+        max-height: 168px;
+        max-width: 300px;
+        margin-bottom: 16px;
+
+    }
+    
+}

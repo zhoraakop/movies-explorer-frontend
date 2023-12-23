@@ -1,12 +1,22 @@
 .form__input{
-    width: 1086px;
+    width: 1080px;
     height: 50px;
     flex-shrink: 0;
     border-radius: 8px;
     background: #2F2F2F;
-    border: 0;
+    border: 1px solid #2F2F2F;
     color: white;
+    color: #8B8B8B;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px;
+    padding-left: 20px;
+    box-sizing: border-box;
 }
+
 
 @media screen and (max-width: 1023px) {
     .form__input{
@@ -17,6 +27,7 @@
 
 @media screen and (max-width: 767px) {
     .form__input{
+        padding-left: 13px;
         height: 44px;
         max-width: 238px;
     }

@@ -16,8 +16,8 @@ const AboutProject = () => {
       </p>
       <p className="information__greenLine">1 неделя</p>
       <p className="information__grayLine">4 недели</p>
-      <p className="information__greenLine-subtitle">Back-end</p>
-      <p className="information__grayLine-subtitle">Front-end</p>
+      <p className="information__subtitle-greenLine">Back-end</p>
+      <p className="information__subtitle-grayLine">Front-end</p>
     </section>
   );
 };

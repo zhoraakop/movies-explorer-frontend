@@ -1,0 +1,31 @@
+.header__menu-button{
+    display: none;
+}
+
+@media screen and (max-width: 1023px) {
+    .header__menu-button{
+        background-image: url('../../../images/icon__COLOR_icon-main.svg');
+        width: 44px;
+        height: 44px;
+        background-size: cover;
+        background-color: transparent;
+        border: 0;
+        padding: 0;
+        margin-right: 30px;
+        transition: opacity .2s linear;
+        display: block;
+    }
+    
+    .header__menu-button:hover{
+        opacity: 0.8;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .header__menu-button{
+        width: 40px;
+        height: 43px;
+        margin-right: 14px;
+    }
+}

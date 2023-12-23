@@ -1,0 +1,27 @@
+.movies__title-card{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 250px;
+    margin: 0;
+    margin-left: 14px;
+    max-height: 16px;
+}
+
+@media screen and (max-width: 1023px) {
+    .movies__title-card{
+        margin-left: 0;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .movies__title-card{
+        font-size: 12px;
+        width: 240px;
+    }
+    
+}

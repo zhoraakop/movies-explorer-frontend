@@ -12,6 +12,10 @@
     grid-column-end: 3;
 }
 
+.information__title:nth-child(n + 3){
+    padding-left: 40px;
+}
+
 .information__title:last-of-type{
     grid-column-start: 3;
     grid-column-end: 5;

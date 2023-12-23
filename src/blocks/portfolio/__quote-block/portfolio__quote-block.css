@@ -1,0 +1,30 @@
+.portfolio__quote-block {
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    margin: 0;
+    max-width: 600px;
+    margin-bottom: 81px;
+}
+
+@media screen and (max-width: 1023px) {
+    .portfolio__quote-block{
+        font-size: 12px;
+        line-height: 18px;
+        max-width: 364px;
+        margin-bottom: 65px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio__quote-block{
+        font-size: 11px;
+        line-height: 16px;
+        margin-bottom: 40px;
+    }
+    
+}

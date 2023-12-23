@@ -1,0 +1,29 @@
+.register__input-form {
+  width: 100%;
+  border-radius: 8px;
+  background: #2f2f2f;
+  border: 0;
+  width: 396px;
+  height: 46px;
+  flex-shrink: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+
+#password{
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .register__input-form{
+      width: 260px;
+  }
+}

@@ -5,11 +5,11 @@ function Footer() {
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
       <div className="footer__block">
-        <p className="footer__block-year">© 2023</p>
-        <a href="https://github.com/zhoraakop" className="footer__block-github">
+        <p className="footer__year-block">© 2023</p>
+        <a target="blank" href="https://github.com/zhoraakop" className="footer__github-block">
           Github
         </a>
-        <p className="footer__block-yandex">Яндекс.Практикум</p>
+        <p className="footer__yandex-block">Яндекс.Практикум</p>
       </div>
     </footer>
   );
