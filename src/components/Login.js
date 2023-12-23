@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+import Header from "./Header";
+
 function Login() {
   return (
     <div className="login">
+      <Header />
       <form className="login register__form">
         <p className="register__form-title">E-mail</p>
         <input
@@ -21,7 +25,7 @@ function Login() {
           Войти
         </button>
         <p className="register__form-questian">
-          Ещё не зарегистрированы? <a href="#">Регистрация</a>
+          Ещё не зарегистрированы? <Link to="/signup">Регистрация</Link>
         </p>
       </form>
     </div>

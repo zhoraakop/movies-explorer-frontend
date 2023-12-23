@@ -1,9 +1,17 @@
-const name = 'Георгий';
-const email = 'akopovzh@yandex.ru';
+import Header from "./Header";
 
-function Profile() {
-    return (
-        <div className="profile">
+const name = "Георгий";
+const email = "akopovzh@yandex.ru";
+
+function Profile({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+  return (
+    <>
+      <Header
+        onClickMenuIsClose={onClickMenuIsClose}
+        onClickMenu={onClickMenu}
+        onClickMenuIsOpen={onClickMenuIsOpen}
+      />
+      <div className="profile">
         <h2 className="profile__title">Привет, Георгий!</h2>
         <form className="profile__form">
           <p className="profile__form-title">Имя</p>
@@ -15,7 +23,8 @@ function Profile() {
         <button className="profile__button-edit">Редактировать</button>
         <button className="profile__button-exit">Выйти из аккаунта</button>
       </div>
-    );
+    </>
+  );
 }
 
 export default Profile;

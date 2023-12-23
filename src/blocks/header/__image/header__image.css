@@ -1,33 +1,32 @@
 .header__image {
-    top: 18px;
-    left: 70px;
-    position: absolute;
+  top: 18px;
+  left: 70px;
+  position: absolute;
 }
 
-.register .header__image{
-    top: 70px;
-    left: 442px;
+.logo > .header__image {
+  top: 70px;
+  left: 442px;
 }
 
 @media screen and (max-width: 1023px) {
-    .header__image{
-        top:18px;
-        left: 30px;
-    }
-    .register .header__image{
-        top: 232px;
-        left: 186px;
-    }
-    
+  .header__image {
+    top: 18px;
+    left: 30px;
+  }
+  .logo > .header__image {
+    top: 232px;
+    left: 186px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-    .header__image{
-        top: 18px;
-        left: 14px;
-    }
-    .register .header__image{
-        position: unset;
-        margin-top: 56px;
-    }
+  .header__image {
+    top: 18px;
+    left: 14px;
+  }
+  .logo > .header__image {
+    position: unset;
+    margin-top: 56px;
+  }
 }

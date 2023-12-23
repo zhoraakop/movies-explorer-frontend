@@ -2,7 +2,7 @@ import Portfolio from "./Portfolio";
 
 const AboutMe = () => {
   return (
-    <section className="portfolio">
+    <section className="portfolio" id="portfolio">
       <h2 className="title">Студент</h2>
       <div className="portfolio__block">
         <div className="portfolio__block-image"></div>

@@ -1,35 +1,38 @@
-.popup__profile-button{
-    border: none;
-    background: #313131;
-    color: white;
-    width: 100px;
-    height: 32px;
-    flex-shrink: 0;
-    border-radius: 20px;
-    text-align: center;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 16px;
-    transition: opacity .2s linear;
-    position: absolute;
-    bottom: 90px;
-    left: 210px;
-    transition: opacity .2s linear;
+.popup__profile-button {
+  border: none;
+  background: #313131;
+  color: white;
+  width: 100px;
+  height: 32px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  transition: opacity 0.2s linear;
+  position: absolute;
+  bottom: 90px;
+  left: 210px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s linear;
 }
 
-.popup__profile-button:hover{
-    opacity: 0.8;
+.popup__profile-button:hover {
+  opacity: 0.8;
 }
 
-.popup__profile-button:hover{
-    opacity: 0.8;
+.popup__profile-button:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 767px) {
-    .popup__profile-button{
-        bottom: 46px;
-        left: 110px;
-    }
-    
+  .popup__profile-button {
+    bottom: 46px;
+    left: 110px;
+  }
 }

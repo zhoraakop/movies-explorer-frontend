@@ -7,6 +7,11 @@
     text-transform: none;
     text-decoration: none;
     color: white;
+    transition: opacity .2s linear;
+}
+
+.portfolio__block-github:hover{
+    opacity: .8;
 }
 
 @media screen and (max-width: 1023px) {
@@ -16,7 +21,7 @@
     
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 767px) {
     .portfolio__block-github{
     }
     

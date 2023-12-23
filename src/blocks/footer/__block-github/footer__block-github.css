@@ -1,25 +1,29 @@
-.footer__block-github{
-    text-align: right;
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-family: Inter;
-    font-size: 13px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    position: absolute;
-    right: 0;
-    text-transform: none;
-    text-decoration: none;
-    color: white;
-    margin: 20px 0;
+.footer__block-github {
+  text-align: right;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  right: 0;
+  text-transform: none;
+  text-decoration: none;
+  color: white;
+  margin: 20px 0;
+  transition: opacity 0.2s linear;
+}
+
+.footer__block-github:hover {
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 767px) {
-    .footer__block-github{
-        font-size: 12px;
-        position: unset;
-        text-align: center;
-        margin: 0;
-    }
-    
+  .footer__block-github {
+    font-size: 12px;
+    position: unset;
+    text-align: center;
+    margin: 0;
+  }
 }
