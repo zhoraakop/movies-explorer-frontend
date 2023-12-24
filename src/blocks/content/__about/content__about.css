@@ -5,7 +5,7 @@
     flex-direction: column;
     border-radius: 10px;
     background: #272727;
-    margin: 20px auto 0 auto;
+    margin: 20px 40px 0 40px;
     color: white;
 }
 
@@ -13,6 +13,8 @@
     .content__about{
         max-width: 728px;
         max-height: 834px;
+        margin-right: auto ;
+        margin-left: auto;
     }
     
 }
@@ -22,6 +24,8 @@
         margin-top: 14px;
         max-width: 292px;
         max-height: 586px;
+        margin-right: auto ;
+        margin-left: auto;
     }
     
 }

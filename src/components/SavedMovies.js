@@ -5,7 +5,7 @@ import SearchForm from "./SearchForm";
 
 function SavedMovies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
   return (
-    <div className="saved">
+    <main className="content saved">
       <Header
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
@@ -14,7 +14,7 @@ function SavedMovies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
       <SearchForm />
       <MoviesCardList />
       <Footer />
-    </div>
+    </main>
   );
 }
 

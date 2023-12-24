@@ -1,5 +1,20 @@
 .portfolio__block{
     display: flex;
-    flex-direction: column;
-    position: relative;
+    flex-wrap: wrap;
 }
+
+.portfolio__block.url{
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 1140px;
+}
+
+.portfolio__text{
+    order: -1
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio__text {
+      order: 1;
+    }
+  }

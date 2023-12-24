@@ -2,21 +2,27 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 
 function Register() {
+  const reg = true;
   return (
-    <div className="register">
-      <Header />
+    <main className="content register">
+      <Header reg={reg} />
       <form className="register__form">
         <p className="register__title-form">Имя</p>
         <input
           className="register__input-form"
           type="text"
           placeholder="Имя"
+          minLength="2"
+          maxLength="40"
           required
         ></input>
         <p className="register__title-form">E-mail</p>
         <input
           className="register__input-form"
+          type="email"
           placeholder="E-mail"
+          minLength="2"
+          maxLength="40"
           required
         ></input>
         <p className="register__title-form" type="text">
@@ -26,6 +32,8 @@ function Register() {
           className="register__input-form"
           type="password"
           placeholder="Пароль"
+          minLength="2"
+          maxLength="40"
           required
         ></input>
       </form>
@@ -38,7 +46,7 @@ function Register() {
         </p>
 
       </div>
-    </div>
+    </main>
   );
 }
 

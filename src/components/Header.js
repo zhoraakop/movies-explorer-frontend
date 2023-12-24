@@ -4,42 +4,51 @@ const log = false;
 const reg = false;
 const logReg = true;
 
-function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, logReg}) {
   return (
     <>
       {!logReg && reg && !log ? (
         <header className="header register">
-          <Link to="/" className="logo">
-            <img alt="Лого" src={logo} className="header__image" />
+          <div className="header__block">
+
+          <Link to="/" className="header__image">
+            <img alt="Лого" src={logo} />
           </Link>
           <h2 className="header__title">Добро пожаловать!</h2>
+          </div>
         </header>
       ) : null}
       {!logReg && !reg && log ? (
         <header className="header register">
-          <Link to="/" className="logo">
-            <img alt="Лого" src={logo} className="header__image" />
+          <div className="header__block">
+
+          <Link to="/" className="logo header__image">
+            <img alt="Лого" src={logo} />
           </Link>
           <h2 className="header__title">Рады видеть!</h2>
+          </div>
         </header>
       ) : null}
       {!logReg && !reg && !log ? (
         <header className="header">
-          <Link to="/">
-            <img alt="Лого" src={logo} className="header__image"></img>
-          </Link>
-          <Link to="/signup" className="header__button">
-            Регистрация
-          </Link>
-          <Link to="/signin" className="header__button">
-            Войти
-          </Link>
+          <nav className="header__navigation">
+            <Link to="/" className="header__image">
+              <img alt="Лого" src={logo} />
+            </Link>
+            <Link to="/signup" className="header__button">
+              Регистрация
+            </Link>
+            <Link to="/signin" className="header__button">
+              Войти
+            </Link>
+
+          </nav>
         </header>
       ) : null}
       {logReg ? (
         <header className="header login">
-          <Link to="/">
-            <img alt="Лого" src={logo} className="header__image"></img>
+          <Link to="/" className="header__image">
+            <img alt="Лого" src={logo} />
           </Link>
           <button
             onClick={onClickMenuIsOpen}

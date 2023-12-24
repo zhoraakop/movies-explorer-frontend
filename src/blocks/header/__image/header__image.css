@@ -1,32 +1,31 @@
 .header__image {
-  top: 18px;
-  left: 70px;
-  position: absolute;
+  margin-right: auto;
+  margin-left: 70px;
 }
 
-.logo > .header__image {
-  top: 70px;
-  left: 442px;
+.header__block .header__image {
+  margin-left: 0;
+  margin-top: 70px;
 }
 
 @media screen and (max-width: 1023px) {
   .header__image {
-    top: 18px;
-    left: 30px;
+    margin-left: 30px;
   }
-  .logo > .header__image {
-    top: 232px;
-    left: 186px;
+  .header__block .header__image {
+    margin-top: 232px;
   }
 }
 
 @media screen and (max-width: 767px) {
   .header__image {
-    top: 18px;
-    left: 14px;
+    margin-left: 14px;
   }
-  .logo > .header__image {
-    position: unset;
+  .header__block .header__image {
     margin-top: 56px;
+    width: 260px;
+    display: flex;
+    justify-content: center;
+    
   }
 }

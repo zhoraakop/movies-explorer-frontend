@@ -15,6 +15,7 @@
   text-decoration: transparent;
   text-transform: none;
   transition: opacity 0.2s linear;
+  flex-grow: 1;
 }
 
 .portfolio__url:hover {

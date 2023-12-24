@@ -1,10 +1,11 @@
-.footer{
-    width: 100%;
-    margin: 0;
+.search-form__block{
+    max-width: 1140px;
+    margin: 0 70px;
+    border-bottom: 1px solid #424242;
 }
 
 @media screen and (max-width: 1023px) {
-    .footer{
+    .search-form__block{
         max-width: 708px;
         margin: 0 auto;
     }
@@ -12,9 +13,8 @@
 }
 
 @media screen and (max-width: 767px) {
-    .footer{
-        max-width: 300px;
-        height: 253px;
+    .search-form__block{
+        max-width: 292px;
         margin: 0 auto;
     }
     

@@ -2,12 +2,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 28px;
+    margin-top: 29px;
 }
 
 @media screen and (max-width: 1023px) {
     .filter{
-        margin-top: 40px;
+        margin-top: 41px;
     }
     
 }

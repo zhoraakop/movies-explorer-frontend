@@ -1,0 +1,21 @@
+.header__block{
+    max-width: 396px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 40px;
+}
+
+.register .header__block{
+    flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+    .header__block {
+      max-width: 260px;
+      margin-bottom: 80px;
+      justify-content: end;
+    }
+    
+  }

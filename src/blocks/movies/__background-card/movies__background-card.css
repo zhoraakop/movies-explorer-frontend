@@ -3,12 +3,12 @@
     border-radius: 3px;
     width: 52px;
     height: 18px;
-    margin-left: 30px;
+    margin-right: 14px;
 }
 
 @media screen and (max-width: 1023px) {
     .movies__background-card{
-        margin-left: 37px;
+        margin-right: 0;
 
     }
     
@@ -16,7 +16,7 @@
 
 @media screen and (max-width: 767px) {
     .movies__background-card{
-        margin-left: 8px;
+        margin-right: 0;
 
     }
     

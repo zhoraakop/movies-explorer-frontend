@@ -1,9 +1,8 @@
 .movies{
     max-width: 1140px;
-    margin: 80px auto 0 auto;
+    margin: 70px 70px 0 70px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(auto-fill, 1fr);
+    grid-template-columns: repeat(auto-fill, 360px);
     column-gap: 30px;
     row-gap: 58px;
 }
@@ -16,7 +15,8 @@
     .movies{
         max-width: 710px;
         grid-template-columns: repeat(2, 339fr);
-        grid-template-rows: repeat(auto-fill, 1fr);
+        margin-right: auto;
+        margin-left: auto;
         row-gap: 47px;
         column-gap: 30px;
 
@@ -30,8 +30,10 @@
 @media screen and (max-width: 767px) {
     .movies{
         max-width: 300px;
+        margin-top: 40px;
+        margin-right: auto;
+        margin-left: auto;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(auto-fill, 1fr);
         row-gap: 36px;
         column-gap: 0;
 

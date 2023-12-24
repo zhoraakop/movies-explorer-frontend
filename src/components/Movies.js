@@ -5,18 +5,20 @@ import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
 function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+  const logReg = true;
   return (
-    <div className="all">
+    <main className="content all">
       <Header
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
         onClickMenuIsOpen={onClickMenuIsOpen}
+        logReg={logReg}
       />
       <SearchForm />
       <MoviesCardList />
       <MoviesAddCard />
       <Footer />
-    </div>
+    </main>
   );
 }
 

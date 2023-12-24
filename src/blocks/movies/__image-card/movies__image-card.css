@@ -1,6 +1,7 @@
 .movies__image-card{
     object-fit: cover;
     max-height: 201px;
+    max-width: 360px;
     margin-bottom: 14px;
     cursor: pointer;
 }

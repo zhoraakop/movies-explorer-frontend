@@ -6,9 +6,8 @@
     flex-shrink: 0;
     border-radius: 10px;
     background-repeat: no-repeat;
-    position: absolute;
-    top: 66px;
-    right: 0;
+    margin-left: auto;
+    margin-top: auto;
 }
 
 @media screen and (max-width: 1023px) {

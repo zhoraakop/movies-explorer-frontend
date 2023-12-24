@@ -1,11 +1,13 @@
 .search-form{
-    max-width: 1280px;
-    margin: 0 auto 10px auto;
+    width: 100%;
+    margin: 0 auto 11px auto;
 }
 
 @media screen and (max-width: 1023px) {
     .search-form{
         max-width: 768px;
+        margin-right: auto;
+        margin-left: auto;
     }
     
 }
@@ -13,6 +15,8 @@
 @media screen and (max-width: 767px) {
     .search-form{
         max-width: 320px;
+        margin-right: auto;
+        margin-left: auto;
     }
     
 }

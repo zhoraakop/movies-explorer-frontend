@@ -1,8 +1,9 @@
 .movies__card{
     display: flex;
-    width: 360px;
+    max-width: 360px;
     flex-wrap: wrap;
     position: relative;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 1023px) {

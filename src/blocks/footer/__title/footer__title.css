@@ -7,9 +7,17 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    max-width: 1140px;
     border-bottom: 1px solid #424242;
     padding: 79px 0 20px 0;
-    margin: 0;
+    margin: 0 70px;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer__title{
+        margin: 0 auto;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {

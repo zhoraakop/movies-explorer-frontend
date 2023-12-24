@@ -26,6 +26,10 @@
         line-height: 18px;
         margin-top: 22px;
     } 
+    .information__subtitle:nth-child(n + 5){
+        padding-left: 15px;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -37,6 +41,9 @@
         grid-column-end: 4;
         grid-row-start: 3;
         grid-row-end: 4;
+    }
+    .information__subtitle:nth-child(n + 5){
+        padding-left: 0;
     }
     .information__subtitle:first-of-type{
         grid-column-start: 1;

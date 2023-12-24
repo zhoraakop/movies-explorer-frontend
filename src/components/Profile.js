@@ -5,25 +5,43 @@ const email = "akopovzh@yandex.ru";
 
 function Profile({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
   return (
-    <>
+    <section className="content">
       <Header
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
         onClickMenuIsOpen={onClickMenuIsOpen}
       />
       <div className="profile">
-        <h2 className="profile__title">Привет, Георгий!</h2>
+        <h1 className="profile__title">Привет, Георгий!</h1>
         <form className="profile__form">
           <p className="profile__title-form">Имя</p>
-          <input className="profile__input-form profile__input-name" value={name}></input>
+          <input
+            className="profile__input-form profile__input-name"
+            value={name}
+            type="text"
+            minLength="2"
+            maxLength="40"
+            placeholder="Имя"
+          ></input>
           <div className="border"></div>
           <p className="profile__subtitle-form">E-mail</p>
-          <input className="profile__input-form profile__input-email" value={email}></input>
+          <input
+            className="profile__input-form profile__input-email"
+            value={email}
+            type="email"
+            minLength="2"
+            maxLength="40"
+            placeholder="E-mail"
+          ></input>
         </form>
-        <button className="profile__edit-button">Редактировать</button>
-        <button className="profile__exit-button">Выйти из аккаунта</button>
+        <button type="button" className="profile__edit-button">
+          Редактировать
+        </button>
+        <button type="button" className="profile__exit-button">
+          Выйти из аккаунта
+        </button>
       </div>
-    </>
+    </section>
   );
 }
 

@@ -50,7 +50,6 @@
 @import url(./blocks/search-form/__subtitle/search-form__subtitle.css);
 @import url(./blocks/search-form/search-form.css);
 @import url(./blocks/filter/filter.css);
-@import url(./blocks/border/border.css);
 @import url(./blocks/movies/movies.css);
 @import url(./blocks/movies/__card/movies__card.css);
 @import url(./blocks/movies/__image-card/movies__image-card.css);
@@ -97,5 +96,7 @@
 @import url(./blocks/login/__button/login__button.css);
 @import url(./blocks/login/__questian/login__questian.css);
 @import url(./blocks/login/__block/login__block.css);
-* { outline: 1px solid red; }
+@import url(./blocks/header/__block/header__block.css);
+@import url(./blocks/all/all.css);
+@import url(./blocks/search-form/__block/search-from__block.css);
 

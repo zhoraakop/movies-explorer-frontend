@@ -1,11 +1,12 @@
 .technology__block {
-    margin: 0 auto;
+    margin: 0 50px;
     max-width: 1140px;
 }
 
 @media screen and (max-width: 1023px) {
     .technology__block{
         max-width: 668px;
+        margin: 0 auto;
     }
     
 }

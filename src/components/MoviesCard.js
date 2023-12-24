@@ -16,14 +16,14 @@ import film_twelve from "../images/pic__COLOR12_pic.svg";
 function MoviesCard() {
   return (
     <div className="movies__card">
-      <img alt="Фильм" className="movies__image-card" src={film_one}></img>
+      <img alt="Фильм" className="movies__image-card" src={film_one} />
       <h2 className="movies__title-card">33 слова о дизайне</h2>
       <div className="movies__background-card">
         <p className="movies__subtitle-card">1ч 17м</p>
       </div>
-      <img alt="Галочка" className="movies__button-card_ok" src={deleteButton}></img>
-      <img alt="Удаление" className="movies__button-card_delete" src={deleteButton}></img>
-      <button className="movies__button-card">Сохранить</button>
+      <img alt="Галочка" className="movies__button-card_ok" src={deleteButton} />
+      <img alt="Удаление" className="movies__button-card_delete" src={deleteButton} />
+      <button type="button" className="movies__button-card">Сохранить</button>
     </div>
   );
 }
