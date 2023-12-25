@@ -29,12 +29,10 @@
   height: 32px;
   flex-shrink: 0;
   border: 1px solid #3ddc84;
-  margin-right: 70px;
 }
 
 @media screen and (max-width: 1023px) {
   .header__button:last-child {
-    margin-right: 30px;
   }
 }
 
@@ -46,6 +44,6 @@
   .header__button:last-child {
     width: 54px;
     height: 26px;
-    margin-right: 14px;
+    
   }
 }

@@ -12,8 +12,7 @@
 
 @media screen and (max-width: 1023px) {
     .content__title-about{
-        margin: 350px auto 0 auto;
-        max-width: 680px;
+        margin: 350px 24px 0 24px;
         font-size: 40px;
         line-height: 52px;
         letter-spacing: -1.6px;
@@ -23,8 +22,7 @@
 
 @media screen and (max-width: 767px) {
     .content__title-about{
-        margin: 220px auto 0 auto;
-        max-width: 292px;
+        margin: 220px 0 0 0;
         font-size: 29px;
         line-height: 37px;
         letter-spacing: -1.16px;

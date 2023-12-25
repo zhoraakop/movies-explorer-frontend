@@ -1,12 +1,13 @@
 .portfolio__block{
     display: flex;
     flex-wrap: wrap;
+    list-style-type: none ;
+    padding: 0;
 }
 
 .portfolio__block.url{
     flex-direction: column;
     flex-wrap: nowrap;
-    max-width: 1140px;
 }
 
 .portfolio__text{
@@ -17,4 +18,10 @@
     .portfolio__text {
       order: 1;
     }
+    .portfolio__block{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
   }

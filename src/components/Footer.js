@@ -6,7 +6,7 @@ function Footer() {
       </h2>
       <ul className="footer__block">
         <li className="footer__year-block">© 2023</li>
-        <li className="footer__yandex-block">Яндекс.Практикум</li>
+        <li className="footer__yandex-block"><a target="blank" href="https://ya.ru/">Яндекс.Практикум</a></li>
         <li className="footer__github-block"><a target="blank" href="https://github.com/zhoraakop">
           Github
         </a></li>

@@ -7,18 +7,20 @@ import Footer from "./Footer";
 
 function Main({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
   return (
-    <main className="content">
+    <>
       <Header
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
         onClickMenuIsOpen={onClickMenuIsOpen}
       />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main className="content">
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 

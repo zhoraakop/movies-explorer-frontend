@@ -12,7 +12,7 @@
 
 @media screen and (max-width: 1023px) {
     .portfolio__image-block{
-        width: 255;
+        width: 255px;
         height: 307px;
     }
     
@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 767px) {
     .portfolio__image-block{
-        position: unset;
+        margin: 0;
         margin-top: 60px;
         width: 292px;
         height: 352px;

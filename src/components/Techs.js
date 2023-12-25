@@ -4,7 +4,7 @@ const Techs = () => {
       <div className="technology__block">
         <h2 className="title">Технологии</h2>
         <div className="technology__information">
-          <h2 className="technology__title">7 технологий</h2>
+          <h3 className="technology__title">7 технологий</h3>
           <p className="technology__subtitle">
             На курсе веб-разработки мы освоили технологии, которые применили в
             дипломном проекте.

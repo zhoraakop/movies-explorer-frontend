@@ -5,10 +5,13 @@ const SearchForm = () => {
     <section className="search-form">
       <div className="search-form__block">
         <form className="form">
+          <div className="form__block">
+
           <input className="form__input" placeholder="Фильм" required ></input>
           <button className="form__button" type="submit">
             <img alt="Кнопка" src={submit} />
           </button>
+          </div>
         <div className="filter">
           <label className="switch">
             <input type="checkbox" />

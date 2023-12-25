@@ -2,17 +2,17 @@ import { Link } from "react-router-dom";
 
 const NavTab = () => {
   return (
-    <div className="button-information">
-      <a href="#info" className="button">
+    <ul className="button-information">
+      <li href="#info" className="button">
         О проекте
-      </a>
-      <a href="#techs" className="button">
+      </li>
+      <li href="#techs" className="button">
         Технологии
-      </a>
-      <a href="#portfolio" className="button">
+      </li>
+      <li href="#portfolio" className="button">
         Студент
-      </a>
-    </div>
+      </li>
+    </ul>
   );
 };
 

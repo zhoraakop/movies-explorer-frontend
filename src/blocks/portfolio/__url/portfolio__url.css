@@ -18,6 +18,12 @@
   flex-grow: 1;
 }
 
+.portfolio__url-block{
+  list-style-type: none ;
+    padding: 0;
+    
+}
+
 .portfolio__url:hover {
   opacity: 0.8;
 }
@@ -29,6 +35,12 @@
   border: none;
   padding: 0;
   margin-bottom: 125px;
+}
+
+.portfolio__url a{
+  text-decoration: none;
+  color: white;
+  width: 100%;
 }
 
 @media screen and (max-width: 1023px) {

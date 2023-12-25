@@ -10,7 +10,6 @@
 
 @media screen and (max-width: 1023px) {
     .technology{
-        max-width: 768px;
         max-height: 567px;
         padding-top: 90px;
         padding-bottom: 90px;
@@ -20,7 +19,6 @@
 
 @media screen and (max-width: 767px) {
     .technology{
-        max-width: 320px;
         max-height: 651px;
         padding: 70px 0;
     }

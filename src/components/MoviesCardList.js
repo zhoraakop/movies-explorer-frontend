@@ -2,20 +2,22 @@ import MoviesCard from "./MoviesCard";
 
 function MoviesCardList() {
   return (
-    <section className="movies">
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-      <MoviesCard />
-    </section>
+    <ul className="movies">
+      
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+        <li><MoviesCard /></li>
+
+    </ul>
   );
 }
 

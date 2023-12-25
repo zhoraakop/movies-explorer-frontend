@@ -21,7 +21,6 @@
 
     @media screen and (max-width: 1023px) {
         .information__grayLine{
-            max-width: 528px;
             margin-top: 93px;
             height: 28px;
             padding-top: 8px;

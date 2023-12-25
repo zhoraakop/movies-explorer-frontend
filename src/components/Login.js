@@ -4,8 +4,9 @@ import Header from "./Header";
 function Login() {
   const log = true;
   return (
+    <>
+    <Header log={log} />
     <main className="register">
-      <Header log={log} />
       <form className="register__form">
         <p className="register__title-form">E-mail</p>
         <input
@@ -16,7 +17,7 @@ function Login() {
           maxLength="40"
           placeholder="E-mail"
         ></input>
-        <p className="register__title-form" type="text">
+        <p className="register__title-form">
           Пароль
         </p>
         <input
@@ -38,6 +39,7 @@ function Login() {
         </p>
       </div>
     </main>
+    </>
   );
 }
 

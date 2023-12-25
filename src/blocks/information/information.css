@@ -10,8 +10,7 @@
 
 @media screen and (max-width: 1023px) {
     .information{
-        max-width: 668px;
-        margin: 90px auto 0 auto;
+        margin: 90px 50px 0 50px;
         padding-bottom: 90px;
         grid-template-columns: 140px 194px repeat(2, 1fr);
         grid-template-rows: 50px 118px 76px 129px 30px;
@@ -21,8 +20,7 @@
 
 @media screen and (max-width: 767px) {
     .information{
-        max-width: 284px;
-        margin: 70px auto 0 auto;
+        margin: 70px 18px 0 18px;
         padding-bottom: 69px;
         grid-template-columns: 100px repeat(2, 1fr);
         grid-template-rows: 50px 104px 64px 100px 64px 95px 24px;

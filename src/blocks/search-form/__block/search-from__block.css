@@ -1,21 +1,18 @@
 .search-form__block{
-    max-width: 1140px;
     margin: 0 70px;
     border-bottom: 1px solid #424242;
 }
 
 @media screen and (max-width: 1023px) {
     .search-form__block{
-        max-width: 708px;
-        margin: 0 auto;
+        margin: 0 30px;
     }
     
 }
 
 @media screen and (max-width: 767px) {
     .search-form__block{
-        max-width: 292px;
-        margin: 0 auto;
+        margin: 0 14px;
     }
     
 }

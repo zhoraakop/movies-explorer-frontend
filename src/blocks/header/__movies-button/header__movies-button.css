@@ -8,6 +8,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 0;
   margin-right: 16px;
   text-decoration: none;
   padding: 0;
@@ -20,6 +21,7 @@
 
 .header__movies-button:nth-child(n + 4) {
   margin-right: auto;
+  margin-left: 0;
 }
 
 

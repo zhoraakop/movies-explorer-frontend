@@ -5,6 +5,13 @@
     grid-template-columns: repeat(auto-fill, 360px);
     column-gap: 30px;
     row-gap: 58px;
+    list-style-type: none ;
+    padding: 0;
+}
+
+.movies__list{
+    list-style-type: none ;
+    padding: 0;
 }
 
 .saved .movies{

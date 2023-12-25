@@ -51,6 +51,7 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
             <img alt="Лого" src={logo} />
           </Link>
           <button
+            type="button"
             onClick={onClickMenuIsOpen}
             className="header__menu-button"
           ></button>
@@ -80,6 +81,7 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
           <div className={`popup ${onClickMenu ? "popup_active" : ""}`}>
             <div className="popup__content">
               <button
+                type="button"
                 onClick={onClickMenuIsClose}
                 className="popup__close-button"
               ></button>

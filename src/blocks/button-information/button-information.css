@@ -4,6 +4,8 @@
     margin: 150px 0 30px 0;
     transition: opacity .2s linear;
     gap: 10px;
+    list-style-type: none ;
+    padding: 0;
 }
 
 .technology__information > .button-information{
@@ -15,7 +17,7 @@
         margin-top: 314px;
     }
     .technology__information > .button-information{
-        margin: 83px 0 0 0;
+        margin: 83px 10px 0 10px;
     }
     
 }
@@ -30,7 +32,6 @@
         margin: 50px auto 0 auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, auto-fill);
         gap: 10px;
     }
     

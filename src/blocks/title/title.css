@@ -15,10 +15,19 @@
     grid-row-end: 2;
 }
 
+@media screen and (max-width: 1023px) {
+    .title{
+        margin: 0;
+    }
+
+    .portfolio > .title{
+    }
+    
+}
+
 @media screen and (max-width: 767px) {
     .title{
-        width: 284px;
-        margin: 0 auto;
+        margin: 0;
         font-size: 18px;
         letter-spacing: -0.72px;
         grid-column-start: 1;
@@ -26,7 +35,6 @@
     }
 
     .portfolio > .title{
-        width: 292px;
     }
     
 }
