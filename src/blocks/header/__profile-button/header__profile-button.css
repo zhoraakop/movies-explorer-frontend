@@ -26,6 +26,12 @@
 
 @media screen and (max-width: 1023px) {
   .header__profile-button {
+    margin-right: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__profile-button {
     display: none;
   }
 }

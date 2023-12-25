@@ -4,12 +4,14 @@ const name = "Георгий";
 const email = "akopovzh@yandex.ru";
 
 function Profile({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+  const logReg = true;
   return (
     <section className="content">
       <Header
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
         onClickMenuIsOpen={onClickMenuIsOpen}
+        logReg={logReg}
       />
       <div className="profile">
         <h1 className="profile__title">Привет, Георгий!</h1>

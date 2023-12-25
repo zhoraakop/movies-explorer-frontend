@@ -8,24 +8,24 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
   return (
     <>
       {!logReg && reg && !log ? (
-        <header className="header register">
-          <div className="header__block">
+        <header className="header-register">
+          <div className="header-register__block">
 
-          <Link to="/" className="header__image">
+          <Link to="/" className="header-register__image">
             <img alt="Лого" src={logo} />
           </Link>
-          <h2 className="header__title">Добро пожаловать!</h2>
+          <h2 className="header-register__title">Добро пожаловать!</h2>
           </div>
         </header>
       ) : null}
       {!logReg && !reg && log ? (
-        <header className="header register">
-          <div className="header__block">
+        <header className="header-register">
+          <div className="header-register__block">
 
-          <Link to="/" className="logo header__image">
+          <Link to="/" className="logo header-register__image">
             <img alt="Лого" src={logo} />
           </Link>
-          <h2 className="header__title">Рады видеть!</h2>
+          <h2 className="header-register__title">Рады видеть!</h2>
           </div>
         </header>
       ) : null}
@@ -46,7 +46,7 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
         </header>
       ) : null}
       {logReg ? (
-        <header className="header login">
+        <header className="header">
           <Link to="/" className="header__image">
             <img alt="Лого" src={logo} />
           </Link>
@@ -77,7 +77,6 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
           <Link to="/profile" className="header__profile-button">
             Аккаунт
           </Link>
-          {console.log(onClickMenu)}
           <div className={`popup ${onClickMenu ? "popup_active" : ""}`}>
             <div className="popup__content">
               <button

@@ -1,4 +1,4 @@
-.register__questian{
+.register__questian-block{
     color: #8B8B8B;
     text-align: center;
     font-family: Inter;
@@ -10,19 +10,19 @@
     
 }
 
-.register__questian a{
+.register__questian-block a{
     text-decoration: none;
     text-transform: none;
     color: #4285F4;
     transition: opacity .2s linear;
 }
 
-.register__questian a:hover{
+.register__questian-block a:hover{
     opacity: .8;
 }
 
 @media screen and (max-width: 767px) {
-    .register__questian{
+    .register__questian-block{
         font-size: 12px;
         margin-top: 14px;
     }

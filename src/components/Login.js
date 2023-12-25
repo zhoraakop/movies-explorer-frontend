@@ -4,9 +4,9 @@ import Header from "./Header";
 function Login() {
   const log = true;
   return (
-    <main className="content login">
+    <main className="register">
       <Header log={log} />
-      <form className="login__form register__form">
+      <form className="register__form">
         <p className="register__title-form">E-mail</p>
         <input
           className="register__input-form"
@@ -29,11 +29,11 @@ function Login() {
           required
         ></input>
       </form>
-      <div className="login__block">
-        <button type="submit" className="login__button">
+      <div className="register__block login">
+        <button type="submit" className="register__button-block">
           Войти
         </button>
-        <p className="login__questian">
+        <p className="register__questian-block">
           Ещё не зарегистрированы? <Link to="/signup">Регистрация</Link>
         </p>
       </div>

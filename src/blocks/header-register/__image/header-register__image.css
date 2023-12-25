@@ -1,0 +1,20 @@
+.header-register__image {
+  margin-left: 0;
+  margin-top: 70px;
+  margin-right: auto;
+}
+
+@media screen and (max-width: 1023px) {
+  .header-register__image {
+    margin-top: 232px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header-register__image {
+    margin-top: 56px;
+    width: 260px;
+    display: flex;
+    justify-content: center;
+  }
+}

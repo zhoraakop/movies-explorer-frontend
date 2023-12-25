@@ -4,7 +4,7 @@ import Header from "./Header";
 function Register() {
   const reg = true;
   return (
-    <main className="content register">
+    <main className="register">
       <Header reg={reg} />
       <form className="register__form">
         <p className="register__title-form">Имя</p>
@@ -38,10 +38,10 @@ function Register() {
         ></input>
       </form>
       <div className="register__block">
-        <button type="submit" className="register__button">
+        <button type="submit" className="register__button-block">
           Зарегистрироваться
         </button>
-        <p className="register__questian">
+        <p className="register__questian-block">
           Уже зарегистрированы? <Link to="/signin">Войти</Link>
         </p>
 

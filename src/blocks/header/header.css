@@ -3,37 +3,16 @@
   margin: 0 auto;
   height: 74px;
   display: flex;
-  position: relative;
-  justify-content: flex-end;
   align-items: center;
 }
 
 .header__navigation{
   display:contents;
 }
-.header.register {
-  height: 217px;
-}
 
-@media screen and (max-width: 1023px) {
-  .header {
-    max-width: 768px;
-  }
-  .header.register {
 
-    height: 379px;
-    max-width: 768px;
-  }
-}
-
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 320px) {
   .header {
     max-width: 320px;
-  }
-
-  .header.register {
-    height: 253px;
-    max-width: 320px;
-    justify-content: center;
   }
 }

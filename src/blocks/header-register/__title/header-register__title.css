@@ -1,4 +1,4 @@
-.header__title {
+.header-register__title {
   color: #fff;
   font-family: Inter;
   font-size: 24px;
@@ -10,14 +10,16 @@
   text-align: left;
 }
 
+
+
 @media screen and (max-width: 1023px) {
-  .header__title {
+  .header-register__title {
     margin-top: 40px;
   }
 }
 
 @media screen and (max-width: 767px) {
-  .header__title {
+  .header-register__title {
     margin-top: 50px;
     text-align: center;
     max-width: 260px;

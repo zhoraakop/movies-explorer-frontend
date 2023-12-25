@@ -1,4 +1,4 @@
-.register__button {
+.register__button-block {
   border-radius: 3px;
   background: #4285f4;
   width: 396px;
@@ -15,13 +15,13 @@
   transition: opacity .2s linear;
 }
 
-.register__button:hover{
+.register__button-block:hover{
   opacity: .8;
 
 }
 
 @media screen and (max-width: 767px) {
-  .register__button{
+  .register__button-block{
       font-size: 12px;
       font-weight: 500;
       width: 260px;

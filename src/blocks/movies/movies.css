@@ -11,6 +11,16 @@
     margin-bottom: 240px;
 }
 
+@media screen and (max-width: 1279px) {
+    .movies{
+        grid-template-columns: repeat(2, 360fr);
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+    
+}
+
 @media screen and (max-width: 1023px) {
     .movies{
         max-width: 710px;
