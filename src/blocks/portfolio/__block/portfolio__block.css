@@ -1,0 +1,27 @@
+.portfolio__block{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none ;
+    padding: 0;
+}
+
+.portfolio__block.url{
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.portfolio__text{
+    order: -1
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio__text {
+      order: 1;
+    }
+    .portfolio__block{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+  }

@@ -1,0 +1,33 @@
+.register__block{
+    max-width: 1280px;
+    margin: 68px auto 70px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register__block.login{
+    margin: 178px auto 70px auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .register__block{
+        margin-bottom: 232px;
+        max-width: 768px;
+    }
+    
+    
+}
+
+@media screen and (max-width: 767px) {
+    .register__block{
+        margin-bottom: 30px;
+        margin-top: 156px;
+        max-width: 320px;
+    }
+    .register__block.login{
+        margin-top: 266px;
+    }
+    
+}

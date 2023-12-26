@@ -1,0 +1,53 @@
+.button {
+  font-family: Inter;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: white;
+  border-radius: 10px;
+  background: #303030;
+  width: 96px;
+  height: 36px;
+  flex-shrink: 0;
+  border: 1px solid #303030;
+  align-self: center;
+  flex-direction: row;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 0.2s linear;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.technology__information > .button-information > .button {
+  height: 60px;
+  width: 90px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+}
+
+@media screen and (max-width: 1023px) {
+  .technology__information > .button-information > .button {
+    height: 57px;
+    width: 84px;
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .button {
+    height: 26px;
+    width: 82px;
+    font-size: 10px;
+  }
+}

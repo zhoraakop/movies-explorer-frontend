@@ -1,0 +1,14 @@
+.slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .slider.round{
+      align-items: center;
+    }
+    
+}

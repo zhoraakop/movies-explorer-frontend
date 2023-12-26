@@ -1,0 +1,36 @@
+.popup__movies-button {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: opacity 0.2s linear;
+  margin-bottom: 22px;
+  margin-top: 159px;
+  text-decoration: none;
+  transition: opacity 0.2s linear;
+}
+
+.popup__movies-button:hover {
+  opacity: 0.8;
+}
+
+.popup__movies-button:nth-child(n + 3) {
+  margin-top: 0;
+}
+
+.popup__movies-button:nth-child(n + 4) {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__movies-button {
+    margin-top: 144px;
+    margin-bottom: 20px;
+  }
+}

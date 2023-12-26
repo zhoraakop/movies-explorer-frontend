@@ -1,0 +1,36 @@
+.error__button{
+    margin: 0;
+    color: #4285F4;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration: none;
+    text-transform: none;
+    margin-top: 184px;
+    margin-bottom: 60px;
+    transition: opacity .2s linear;
+    cursor: pointer;
+}
+
+.error__button:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1023px) {
+    .error__button{
+        margin-bottom: 222px;
+    }
+    
+}
+
+@media screen and (max-width: 1023px) {
+    .error__button{
+        font-size: 12px;
+        margin-top: 284px;
+        margin-bottom: 30px;
+    }
+    
+}

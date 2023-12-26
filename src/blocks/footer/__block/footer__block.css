@@ -1,0 +1,23 @@
+.footer__block{
+    display: flex;
+    max-width: 1140px;
+    margin: 0;
+    color: white;
+    list-style-type: none ;
+    padding: 0;
+}
+
+@media screen and (max-width: 1023px) {
+    .footer__block{
+        margin: 0;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .footer__block{
+        margin: 0;
+        flex-direction: column-reverse;
+    }
+    
+}

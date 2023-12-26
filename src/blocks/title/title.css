@@ -1,0 +1,40 @@
+.title {
+    color: white;
+    text-align: left;
+    height: 50px;
+    margin: 0;
+    border-bottom: 1px solid white;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.88px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+@media screen and (max-width: 1023px) {
+    .title{
+        margin: 0;
+    }
+
+    .portfolio > .title{
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .title{
+        margin: 0;
+        font-size: 18px;
+        letter-spacing: -0.72px;
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+
+    .portfolio > .title{
+    }
+    
+}

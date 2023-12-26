@@ -1,0 +1,21 @@
+.filter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 29px;
+    margin: 29px auto 0 auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .filter{
+        margin: 41px auto 0 auto;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .filter{
+        margin: 47px auto 0 auto;
+    }
+    
+}

@@ -1,0 +1,10 @@
+.popup__movies-button_active:nth-child(n + 4){
+    border-bottom: 2px solid white;
+    max-width: 200px;
+}
+
+.popup__movies-button_active{
+    border-bottom: 2px solid white;
+    max-width: 72px;
+    padding-bottom: 2px;
+}

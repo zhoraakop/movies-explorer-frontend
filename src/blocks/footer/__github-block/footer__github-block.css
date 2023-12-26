@@ -1,0 +1,30 @@
+.footer__github-block {
+  text-align: right;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 20px 0;
+  transition: opacity 0.2s linear;
+}
+
+.footer__github-block a{
+  text-transform: none;
+  text-decoration: none;
+  color: white;
+}
+
+.footer__github-block:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 767px) {
+  .footer__github-block {
+    font-size: 12px;
+    position: unset;
+    text-align: center;
+    margin: 0;
+  }
+}

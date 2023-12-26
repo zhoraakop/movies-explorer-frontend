@@ -1,0 +1,14 @@
+.error{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 1023px) {
+    .error{
+    }
+    
+}

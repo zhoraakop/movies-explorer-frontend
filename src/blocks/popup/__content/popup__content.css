@@ -1,0 +1,17 @@
+.popup__content{
+    width: 520px;
+    height: 100%;
+    background: #202020;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+@media screen and (max-width: 767px) {
+    .popup__content{
+        width: 320px;
+        height: 100%;
+    }
+    
+}

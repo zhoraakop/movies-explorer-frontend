@@ -1,0 +1,26 @@
+.portfolio__image-url{
+    padding-top: 15px;
+    cursor: pointer;
+    transition: opacity .2s linear;
+    width: 29px;
+}
+
+.portfolio__image-url:hover{
+    opacity: 0.8;
+}
+
+@media screen and (max-width: 1023px) {
+    .portfolio__image-url{
+        padding-top: 20px;
+        width: 27px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio__image-url{
+        padding-top: 5px;
+        width: 18px;
+    }
+    
+}

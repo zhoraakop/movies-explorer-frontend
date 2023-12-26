@@ -1,0 +1,29 @@
+.portfolio__image-block {
+    background-image: url('../../.././images/portfolio.jpg');
+    width: 270px;
+    height: 327px;
+    background-size: cover;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background-repeat: no-repeat;
+    margin-left: auto;
+    margin-top: auto;
+}
+
+@media screen and (max-width: 1023px) {
+    .portfolio__image-block{
+        width: 255px;
+        height: 307px;
+    }
+    
+}
+
+@media screen and (max-width: 767px) {
+    .portfolio__image-block{
+        margin: 0;
+        margin-top: 60px;
+        width: 292px;
+        height: 352px;
+    }
+    
+}
