@@ -22,6 +22,11 @@
   transition: opacity 0.2s linear;
 }
 
+.button a{
+  text-decoration: none;
+  color: white;
+}
+
 .button:hover {
   opacity: 0.8;
 }
