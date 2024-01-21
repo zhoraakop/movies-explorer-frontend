@@ -3,7 +3,7 @@ import Header from "./Header";
 import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
-function SavedMovies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+function SavedMovies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, cards }) {
   const logReg = true;
   return (
     <>
@@ -15,11 +15,11 @@ function SavedMovies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
       />
       <main className="content saved">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList cards={cards}/>
       </main>
       <Footer />
     </>
   );
 }
-
+ 
 export default SavedMovies;

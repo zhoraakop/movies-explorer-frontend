@@ -1,21 +1,12 @@
 import MoviesCard from "./MoviesCard";
 
-function MoviesCardList() {
+function MoviesCardList({cards}) {
   return (
     <ul className="movies">
-      
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
-        <li><MoviesCard /></li>
+      {cards.map((card) => (
+        <li><MoviesCard key={card._id} card={card} /></li>
+      ))
+      }
 
     </ul>
   );

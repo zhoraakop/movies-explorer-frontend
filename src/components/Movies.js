@@ -1,10 +1,11 @@
 import Footer from "./Footer";
 import Header from "./Header";
+import Preloader from "./Preloader";
 import MoviesAddCard from "./MoviesAddCard";
 import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
-function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
+function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, cards }) {
   const logReg = true;
   return (
     <>
@@ -16,7 +17,7 @@ function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose }) {
       />
       <main className="content all">
         <SearchForm />
-        <MoviesCardList />
+        <MoviesCardList cards={cards} />
         <MoviesAddCard />
       </main>
       <Footer />
