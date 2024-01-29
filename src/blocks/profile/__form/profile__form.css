@@ -2,12 +2,13 @@
     width: 410px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 205px);
 
 }
 
 @media screen and (max-width: 767px) {
     .profile__form{
+        grid-template-columns: repeat(2, 130px);
         width: 260px;
     }
     

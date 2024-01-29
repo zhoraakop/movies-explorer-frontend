@@ -16,9 +16,7 @@ function check(response) {
       },
       body: JSON.stringify({ name, email, password }),
     })
-      .then((res) => {
-        return check(res)
-      })
+      .then(check)
   }
   
   export const signin = ({ email, password }) => {
@@ -47,13 +45,12 @@ function check(response) {
       })
   }
   
-  export const getCurrentUser = (token) => {
+  export const getCurrentUser = () => {
     return fetch(`${URL}/users/me`, {
       method: 'GET', 
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
     })
       .then(check)
@@ -84,11 +81,11 @@ function check(response) {
         "duration": movie.duration,
         "year": movie.year,
         "description": movie.description,
-        "image": movie.image,
+        "image": `https://api.nomoreparties.co${movie.image.url}`,
         "trailerLink": movie.trailerLink,
         "nameRU": movie.nameRU,
         "nameEN": movie.nameEN,
-        "thumbnail": movie.thumbnail,
+        "thumbnail": `https://api.nomoreparties.co${movie.image.formats.thumbnail.url}`,
         "movieId": movie.id
       })
     })

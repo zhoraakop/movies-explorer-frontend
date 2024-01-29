@@ -5,7 +5,7 @@ import MoviesAddCard from "./MoviesAddCard";
 import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
-function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, cards }) {
+function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, cards, onSaved, onCheck }) {
   const logReg = true;
   return (
     <>
@@ -17,7 +17,7 @@ function Movies({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, cards }) {
       />
       <main className="content all">
         <SearchForm />
-        <MoviesCardList cards={cards} />
+        <MoviesCardList cards={cards} onSaved={onSaved} onCheck={onCheck}/>
         <MoviesAddCard />
       </main>
       <Footer />

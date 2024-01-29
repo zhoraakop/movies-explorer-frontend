@@ -13,16 +13,38 @@ import NotFound from "./components/NotFound";
 import { getSavedMovies } from "./utils/MainApi";
 import * as MainApi from "./utils/MainApi";
 import { getToken, removeToken, setToken } from "./utils/Token";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const [cards, setCards] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
-  const [savedCards, setSavedCards] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
   const [loggedIn, setLoggedIn] = useState(null);
   const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [isRegister, setIsRegister] = useState(false);
 
+  const token = getToken();
+
+  useEffect(() => {
+    if (token) {
+      Promise.all([MainApi.getCurrentUser(token), getSavedMovies()])
+        .then(([user, movies]) => {
+          if (user) {
+            setCurrentUser(user);
+            setEmail(user.email);
+            setName(user.name);
+            setLoggedIn({ ...user });
+            setSavedMovies(movies);
+            setIsRegister(true);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [isRegister]);
   useEffect(() => {
     getMovies()
       .then((res) => {
@@ -31,30 +53,33 @@ function App() {
       .catch((err) => {
         console.error(err);
       });
-    getSavedMovies()
-      .then((res) => {
-        setSavedCards(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   }, []);
 
-  const token = getToken();
-  useEffect(() => {
-    MainApi.getCurrentUser(token)
-      .then((res) => {
-        if (token) {
-          setCurrentUser(res);
-          setEmail(res.email);
-          setLoggedIn({ ...res });
-          setIsRegister(true);
-        }
+  function checkSavedMovies(movie) {
+    return savedMovies.some(
+      (i) => i._id === movie._id || i.movieId === movie.id
+    );
+  }
+
+  const deleteMovie = (movie) => {
+    const movieId = movie._id;
+    MainApi.deleteMovie(movieId)
+      .then(() => {
+        setSavedMovies((movie) => {
+          return movie.filter((savedMovie) => savedMovie._id !== movieId);
+        });
       })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, [isRegister]);
+      .catch(console.error);
+  };
+
+
+  function savedMovie(movie) {
+    MainApi.saveMovie(movie)
+      .then((movie) => {
+        setSavedMovies([...savedMovies, movie]);
+      })
+      .catch(console.error);
+  }
 
   function cbLogin(dataLogin) {
     MainApi.signin(dataLogin)
@@ -85,6 +110,17 @@ function App() {
     setLoggedIn(null);
   }
 
+  function editProfile(dataProfile) {
+    MainApi.editUserProfile(dataProfile)
+      .then((dataProfile) => {
+        setEmail(dataProfile.email);
+        setName(dataProfile.name);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }
+
   function handleClickMenuPopup() {
     setIsOpenPopup(true);
   }
@@ -110,37 +146,74 @@ function App() {
           <Route
             path="/movies"
             element={
-              <Movies
-                cards={cards}
-                onClickMenuIsClose={closeAll}
-                onClickMenu={isOpenPopup}
-                onClickMenuIsOpen={handleClickMenuPopup}
-              />
+              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+                <Movies
+                  onCheck={checkSavedMovies}
+                  onSaved={savedMovie}
+                  cards={cards}
+                  onClickMenuIsClose={closeAll}
+                  onClickMenu={isOpenPopup}
+                  onClickMenuIsOpen={handleClickMenuPopup}
+                />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/saved-movies"
             element={
-              <SavedMovies
-                cards={savedCards}
-                onClickMenuIsClose={closeAll}
-                onClickMenu={isOpenPopup}
-                onClickMenuIsOpen={handleClickMenuPopup}
-              />
+              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+                <SavedMovies
+                  onDelete={deleteMovie}
+                  onCheck={checkSavedMovies}
+                  cards={savedMovies}
+                  onClickMenuIsClose={closeAll}
+                  onClickMenu={isOpenPopup}
+                  onClickMenuIsOpen={handleClickMenuPopup}
+                />
+              </ProtectedRoute>
             }
           />
           <Route
             path="/profile"
             element={
-              <Profile
-                onClickMenuIsClose={closeAll}
-                onClickMenu={isOpenPopup}
-                onClickMenuIsOpen={handleClickMenuPopup}
-              />
+              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+                <Profile
+                  onEdit={editProfile}
+                  onEmail={email}
+                  onName={name}
+                  onLogout={cbLogout}
+                  onClickMenuIsClose={closeAll}
+                  onClickMenu={isOpenPopup}
+                  onClickMenuIsOpen={handleClickMenuPopup}
+                />
+              </ProtectedRoute>
             }
           />
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register onRegister={cbRegister}/>} />
+          <Route
+            path="/signin"
+            element={
+              <ProtectedRoute
+                user={loggedIn}
+                onlyUnAuth
+                isRegister={isRegister}
+              >
+                {" "}
+                <Login onLogin={cbLogin} />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/signup"
+            element={
+              <ProtectedRoute
+                user={loggedIn}
+                onlyUnAuth
+                isRegister={isRegister}
+              >
+                <Register onRegister={cbRegister} />
+              </ProtectedRoute>
+            }
+          />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

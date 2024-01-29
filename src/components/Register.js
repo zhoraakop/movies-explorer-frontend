@@ -64,15 +64,15 @@ function Register({ onRegister }) {
             value={userData.password || ""}
             onChange={handleChange}
           ></input>
+          <div className="register__block">
+            <button type="submit" className="register__button-block">
+              Зарегистрироваться
+            </button>
+            <p className="register__questian-block">
+              Уже зарегистрированы? <Link to="/signin">Войти</Link>
+            </p>
+          </div>
         </form>
-        <div className="register__block">
-          <button type="submit" className="register__button-block">
-            Зарегистрироваться
-          </button>
-          <p className="register__questian-block">
-            Уже зарегистрированы? <Link to="/signin">Войти</Link>
-          </p>
-        </div>
       </main>
     </>
   );
