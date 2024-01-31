@@ -5,22 +5,21 @@ import { emailRegex } from "../utils/const";
 import useForm from "../hooks/useForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Register({ onRegister }) {
+function Register({ onRegister, errorText }) {
   const reg = true;
 
-  const { formValues, formErrors, handleChange, setFormValues, resetForm } =
+  const { formIsValid, formValues, formErrors, handleChange, setFormValues } =
     useForm();
 
   const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
-    resetForm();
     setFormValues({
       name: currentUser.name,
       password: currentUser.password,
       email: currentUser.email,
     });
-  }, [resetForm, setFormValues, currentUser]);
+  }, [setFormValues, currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -35,7 +34,7 @@ function Register({ onRegister }) {
     <>
       <Header reg={reg} />
       <main className="register">
-        <form className="register__form" onSubmit={handleSubmit}>
+        <form className="register__form" onSubmit={handleSubmit} noValidate>
           <p className="register__title-form">Имя</p>
           <input
             className={`register__input-form ${
@@ -80,7 +79,8 @@ function Register({ onRegister }) {
           ></input>
           <span className="form-error">{formErrors.password}</span>
           <div className="register__block">
-            <button type="submit" className="register__button-block">
+          <span className='register__error-block'>{errorText}</span>
+            <button type="submit" className="register__button-block" disabled={!formIsValid}>
               Зарегистрироваться
             </button>
             <p className="register__questian-block">

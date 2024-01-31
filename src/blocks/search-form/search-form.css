@@ -2,6 +2,22 @@
     margin: 0 0 11px 0;
 }
 
+.search-form__error {
+    font-size: 11px;
+    line-height: 11px;
+    font-weight: 400;
+    color: #ff4062;
+    min-height: 12px;
+    margin: 15px 0 0;
+    text-align: center;
+    opacity: 0;
+    margin-top: 10px;
+
+  }
+  .search-form__error_type_active {
+    opacity: 1;
+  }
+
 @media screen and (max-width: 1023px) {
     .search-form{
     }

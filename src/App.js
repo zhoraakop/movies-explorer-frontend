@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { CurrentUserContext } from "./contexts/CurrentUserContext";
@@ -15,6 +15,7 @@ import { getToken, removeToken, setToken } from "./utils/Token";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
+  const navigate = useNavigate()
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -24,7 +25,7 @@ function App() {
   const [isRegister, setIsRegister] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState("");
-
+  const [errorText, setErrorText] = useState('');
   const token = getToken();
 
   useEffect(() => {
@@ -32,7 +33,6 @@ function App() {
       MainApi.getCurrentUser(token)
         .then((user) => {
           setCurrentUser(user);
-          setIsLoading(true);
           setEmail(user.email);
           setName(user.name);
           setLoggedIn({ ...user });
@@ -41,9 +41,6 @@ function App() {
         .catch((err) => {
           console.error(err);
         })
-        .finally(() => {
-          setIsLoading(false);
-        });
       MainApi.getSavedMovies()
         .then((movies) => {
           setSavedMovies(movies);
@@ -61,26 +58,42 @@ function App() {
   }
 
   const deleteMovie = (movie) => {
-    setIsLoading(true);
+    const movieID = movie.id;
     const movieId = movie._id;
-    MainApi.deleteMovie(movieId)
-      .then(() => {
-        setIsLoading(true);
-        setSavedMovies((movie) => {
-          return movie.filter((savedMovie) => savedMovie._id !== movieId);
-        });
+    if(movieId !== undefined){
+      MainApi.deleteMovie(movieId)
+        .then(() => {
+          setSavedMovies((movie) => {
+            return movie.filter((savedMovie) => savedMovie._id !== movieId) ;
+          });
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+    }else{
+      savedMovies.map(card => {
+        console.log(card)
+        if(card.movieId === movieID){
+          const newId = card._id;
+
+          return MainApi.deleteMovie(newId)
+            .then(() => {
+              setSavedMovies((movie) => {
+                return movie.filter((savedMovie) => savedMovie.id !== newId) ;
+              });
+            })
+            .catch((err) => {
+              console.error(err);
+            })
+        }
       })
-      .catch((err) => {
-        console.error(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    }
   };
 
   function savedMovie(movie) {
     MainApi.saveMovie(movie)
       .then((movie) => {
+        console.log('movie', movie)
         setSavedMovies([...savedMovies, movie]);
       })
       .catch((err) => {
@@ -90,54 +103,53 @@ function App() {
 
   function cbLogin(dataLogin) {
     setIsLoading(true);
-    MainApi.signin(dataLogin)
+    MainApi.signin(dataLogin.email, dataLogin.password)
       .then((dataLogin) => {
-        setIsLoading(true);
+        setErrorText('');
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
+        navigate('/movies')
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err)
+        setErrorText('Не удалось авторизоваться');
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
   }
 
   function cbRegister(dataRegister) {
-    MainApi.signup(dataRegister)
-      .then((dataRegister) => {
-        setIsLoading(true);
-        setLoggedIn(dataRegister);
-        setEmail(dataRegister.email);
+    MainApi.signup(dataRegister.email, dataRegister.password, dataRegister.name)
+      .then((data) => {
+        setErrorText('');
+        setLoggedIn(data);
+        setEmail(data.email);
+        cbLogin(dataRegister)
+        setIsRegister(true);
       })
       .catch((err) => {
-        console.error(err);
+        console.error(err)
+        setErrorText('Не удалось зарегистрироваться');
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
   }
 
   function cbLogout() {
-    setIsLoading(false);
     removeToken();
     setEmail("");
     setIsRegister(false);
     setLoggedIn(null);
+    
     localStorage.removeItem("allMovies");
     localStorage.removeItem("searchInputString");
     localStorage.removeItem("isShort");
     localStorage.removeItem("savedSearchInputString");
     localStorage.removeItem("savedIsShort");
+    navigate('/');
   }
 
   function editProfile(dataProfile) {
     setIsLoading(true);
     MainApi.editUserProfile(dataProfile)
       .then((dataProfile) => {
-        setIsLoading(true);
         setEmail(dataProfile.email);
         setName(dataProfile.name);
         setSuccess("Данные профиля изменены");
@@ -146,9 +158,6 @@ function App() {
         setSuccess("Ошибка при сохранении");
         console.error(err);
       })
-      .finally(() => {
-        setIsLoading(false);
-      });
   }
 
   function handleClickMenuPopup() {
@@ -159,9 +168,7 @@ function App() {
     setIsOpenPopup(false);
   }
 
-  return isLoading ? (
-    <Preloader />
-  ) : (
+  return(
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Routes>
@@ -181,8 +188,12 @@ function App() {
             element={
               <ProtectedRoute user={loggedIn} isRegister={isRegister}>
                 <Movies
+                  setIsLoading={setIsLoading}
+                  isLoading={isLoading}
+                  setSavedMovies={setSavedMovies}
                   isRegister={isRegister}
                   onCheck={checkSavedMovies}
+                  onDelete={deleteMovie}
                   onSaved={savedMovie}
                   cards={savedMovies}
                   onClickMenuIsClose={closeAll}
@@ -235,7 +246,7 @@ function App() {
                 isRegister={isRegister}
               >
                 {" "}
-                <Login onLogin={cbLogin} />
+                <Login onLogin={cbLogin} errorText={errorText}/>
               </ProtectedRoute>
             }
           />
@@ -247,7 +258,7 @@ function App() {
                 onlyUnAuth
                 isRegister={isRegister}
               >
-                <Register onRegister={cbRegister} />
+                <Register onRegister={cbRegister} errorText={errorText}/>
               </ProtectedRoute>
             }
           />

@@ -19,6 +19,18 @@
   opacity: .8;
 
 }
+.register__button-block:disabled{
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
+}
+.register__button-block:hover:disabled{
+  border: 1px solid #f8f8f8;
+  background-color: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
+}
 
 @media screen and (max-width: 767px) {
   .register__button-block{

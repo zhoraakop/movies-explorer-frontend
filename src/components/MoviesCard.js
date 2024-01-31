@@ -2,10 +2,11 @@ import { useLocation } from "react-router-dom";
 import deleteButton from "../images/deleteButton.svg";
 import okButton from "../images/save3.svg";
 
-function MoviesCard({ card, onSaved, onCheck, onDelete }) {
+function MoviesCard({ card, onSaved, onCheck, onDelete, savedMovies }) {
   const page = useLocation();
   const saved = onCheck(card);
   function handleDeleteMovie() {
+    console.log(card)
     onDelete(card);
   }
   function handleSavedMovie() {
@@ -13,15 +14,17 @@ function MoviesCard({ card, onSaved, onCheck, onDelete }) {
   }
   return (
     <div className="movies__card">
-      <img
-        alt={card.image.name}
-        className="movies__image-card"
-        src={
-          page.pathname === "/movies"
-            ? `https://api.nomoreparties.co${card.image.url}`
-            : card.image
-        }
-      />
+      <a className="movies__link-card" href={card.trailerLink} target="_blank" rel='noreferrer'>
+        <img
+          alt={card.image.name}
+          className="movies__image-card"
+          src={
+            page.pathname === "/movies"
+              ? `https://api.nomoreparties.co${card.image.url}`
+              : card.image
+          }
+        />
+      </a>
       <h2 className="movies__title-card">{card.nameRU}</h2>
       <div className="movies__background-card">
         <p className="movies__subtitle-card">
@@ -31,7 +34,7 @@ function MoviesCard({ card, onSaved, onCheck, onDelete }) {
         </p>
       </div>
       {page.pathname === "/movies" && saved === true ? (
-        <img alt="Галочка" className="movies__button-card_ok" src={okButton} />
+        <img alt="Галочка" className="movies__button-card_ok" src={okButton} onClick={handleDeleteMovie}/>
       ) : (
         <button
           type="button"

@@ -8,17 +8,17 @@ function check(response) {
   }
 }
 
-export const signup = ({ name, email, password }) => {
+export const signup = (  email, password, name ) => {
   return fetch(`${URL}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, email, password }),
+    body: JSON.stringify({ email, password, name }),
   }).then(check);
 };
 
-export const signin = ({ email, password }) => {
+export const signin = ( email, password ) => {
   return fetch(`${URL}/signin`, {
     method: "POST",
     credentials: "include",

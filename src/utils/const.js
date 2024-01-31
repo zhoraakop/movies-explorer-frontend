@@ -8,6 +8,8 @@ const CARD_MIN = 5;
 const MAX_WIDTH = 3;
 const MEDIUM_WIDTH = 2;
 
+const DURATION = 40;
+
 export {
   emailRegex,
   MAX_WIDTH_SCREEN,
@@ -17,4 +19,5 @@ export {
   CARD_MIN,
   MAX_WIDTH,
   MEDIUM_WIDTH,
+  DURATION
 };

@@ -6,20 +6,19 @@ import { emailRegex } from "../utils/const";
 import useForm from "../hooks/useForm";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
-function Login({ onLogin }) {
+function Login({ onLogin, errorText }) {
   const log = true;
 
-  const { formValues, formErrors, handleChange, setFormValues, resetForm } =
+  const { formValues, formErrors, handleChange, setFormValues, formIsValid } =
     useForm();
 
   const currentUser = useContext(CurrentUserContext);
   useEffect(() => {
-    resetForm();
     setFormValues({
       password: currentUser.password,
       email: currentUser.email,
     });
-  }, [resetForm, setFormValues, currentUser]);
+  }, [setFormValues, currentUser]);
   function handleSubmit(evt) {
     evt.preventDefault();
     onLogin({ email: formValues.email, password: formValues.password });
@@ -29,7 +28,7 @@ function Login({ onLogin }) {
     <>
       <Header log={log} />
       <main className="register">
-        <form className="register__form" onSubmit={handleSubmit}>
+        <form className="register__form" onSubmit={handleSubmit} noValidate>
           <p className="register__title-form">E-mail</p>
           <input
             className={`register__input-form ${
@@ -52,6 +51,7 @@ function Login({ onLogin }) {
             }`}
             id="password"
             name="password"
+            type="password"
             minLength="2"
             maxLength="40"
             placeholder="Пароль"
@@ -60,7 +60,8 @@ function Login({ onLogin }) {
           ></input>
           <span className="form-error">{formErrors.password}</span>
           <div className="register__block login">
-            <button type="submit" className="register__button-block">
+            <span className='register__error-block'>{errorText}</span>
+            <button type="submit" className="register__button-block" disabled={!formIsValid}>
               Войти
             </button>
             <p className="register__questian-block">

@@ -2,23 +2,32 @@
     object-fit: cover;
     height: 201px;
     width: 100%;
-    margin-bottom: 14px;
+    
     cursor: pointer;
 }
 
-.all .movies__image-card:hover ~ .movies__button-card{
+.movies__link-card{
+    height: 201px;
+    width: 100%;
+    margin-bottom: 14px;
+}
+
+.all .movies__link-card:hover ~ .movies__button-card{
     visibility: visible;
 }
 
-.saved .movies__image-card:hover ~ .movies__button-card_delete{
+.saved .movies__link-card:hover ~ .movies__button-card_delete{
     visibility: visible;
 }
 
 @media screen and (max-width: 1023px) {
     .movies__image-card{
         max-height: 190px;
-        margin-bottom: 25px;
 
+    }
+    .movies__link-card{
+        max-height: 190px;
+        margin-bottom: 25px;
     }
     
 }
@@ -27,8 +36,12 @@
     .movies__image-card{
         max-height: 168px;
         max-width: 300px;
-        margin-bottom: 16px;
 
+    }
+    .movies__link-card{
+        max-height: 168px;
+        max-width: 300px;
+        margin-bottom: 16px;
     }
     
 }

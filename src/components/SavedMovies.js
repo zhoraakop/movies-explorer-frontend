@@ -13,7 +13,7 @@ function SavedMovies({
   onDelete,
   onSaved,
   cards,
-  isRegister,
+  isRegister
 }) {
   const logReg = true;
   const [savedMovies, setSavedMovies] = useState([]);
@@ -28,7 +28,7 @@ function SavedMovies({
   const pathname = useLocation();
 
   useEffect(() => {
-    setSavedMovies(cards.reverse());
+      setSavedMovies(cards.reverse());
   }, []);
 
   const handleSearch = (e) => {
@@ -102,8 +102,8 @@ function SavedMovies({
           onDelete={onDelete}
         />
         {savedMovies.length === 0 && (
-          <div className="movies__error">Список сохранённых фильмов пуст.</div>
-        )}
+        <div className='movies__error'>Список сохранённых фильмов пуст.</div>
+      )}
       </main>
       <Footer />
     </>

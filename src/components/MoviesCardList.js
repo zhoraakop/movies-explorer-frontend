@@ -12,7 +12,7 @@ import {
   MEDIUM_WIDTH,
 } from "../utils/const";
 
-function MoviesCardList({ cards, onSaved, onCheck, onDelete }) {
+function MoviesCardList({ cards, onSaved, onCheck, onDelete, savedMovies }) {
   const { pathname } = useLocation();
   const [count, setCount] = useState("");
   const visibleCards = cards.slice(0, count);
@@ -60,6 +60,7 @@ function MoviesCardList({ cards, onSaved, onCheck, onDelete }) {
           ? visibleCards.map((card) => (
               <li>
                 <MoviesCard
+                savedMovies={savedMovies}
                   key={card.movieId || card._id}
                   card={card}
                   onSaved={onSaved}

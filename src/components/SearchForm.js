@@ -1,10 +1,10 @@
 import submit from "../images/find-3.svg";
 
-const SearchForm = ({ value, onChange, onSubmit, checked, handleChange }) => {
+const SearchForm = ({ value, onChange, onSubmit, checked, handleChange, isValid }) => {
   return (
     <section className="search-form">
       <div className="search-form__block">
-        <form className="form" onSubmit={onSubmit}>
+        <form className="form" onSubmit={onSubmit} noValidate>
           <div className="form__block">
             <input
               onChange={onChange}
@@ -17,6 +17,9 @@ const SearchForm = ({ value, onChange, onSubmit, checked, handleChange }) => {
               <img alt="Кнопка" src={submit} />
             </button>
           </div>
+          <span className={`search-form__error ${!isValid && 'search-form__error_type_active'}`}>
+          Нужно ввести ключевое слово
+        </span>
           <div className="filter">
             <label className="switch">
               <input
