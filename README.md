@@ -12,6 +12,6 @@ Frontend https://akop.nomoredomainsmonster.ru/
 
 Backend https://akop.nomoredomainsmonster.ru/api/
 
-Ссылка на pull-requests: 
+Ссылка на pull-requests: https://github.com/zhoraakop/movies-explorer-frontend/pull/2#issue-2110048462
 
 Адрес репозитория: https://github.com/zhoraakop/movies-explorer-frontend/tree/main
