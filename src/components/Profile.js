@@ -1,6 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import Header from "./Header";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import useForm from "../hooks/useForm";
+import { emailRegex } from "../utils/const";
 
 function Profile({
   onLogout,
@@ -8,23 +10,29 @@ function Profile({
   onClickMenuIsOpen,
   onClickMenuIsClose,
   onEdit,
-  onName,
-  onEmail
+  success,
+  isRegister,
 }) {
   const logReg = true;
+  const { formErrors, setFormIsValid } = useForm();
+
   const currentUser = useContext(CurrentUserContext);
-  const [userData, setUserData] = useState({});
+  const [isEdit, setIsEdit] = useState(false);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
   function handleSubmit(evt) {
     evt.preventDefault();
+    setFormIsValid(evt.target.closest("form").checkValidity());
+    setFormIsValid(false);
+    setIsEdit(false);
     if (!name && !email) {
       return;
     }
     onEdit({
       name: name,
-      email: email
+      email: email,
     });
   }
 
@@ -40,9 +48,15 @@ function Profile({
     setEmail(currentUser.email);
   }, [currentUser]);
 
+  const handleFormEdit = (e) => {
+    e.preventDefault();
+    setIsEdit(true);
+  };
+
   return (
     <>
       <Header
+        isRegister={isRegister}
         onClickMenuIsClose={onClickMenuIsClose}
         onClickMenu={onClickMenu}
         onClickMenuIsOpen={onClickMenuIsOpen}
@@ -57,36 +71,67 @@ function Profile({
               className="profile__input-form profile__input-name"
               value={name ? name : ""}
               onChange={handleChangeName}
+              disabled={!isEdit}
               type="text"
               minLength="2"
               maxLength="40"
               placeholder="Имя"
             ></input>
+            <span className="form-error">{formErrors.name}</span>
             <div className="border"></div>
             <p className="profile__subtitle-form">E-mail</p>
             <input
               className="profile__input-form profile__input-email"
               value={email ? email : ""}
               onChange={handleChangeEmail}
+              pattern={emailRegex}
+              disabled={!isEdit}
               type="email"
               minLength="2"
               maxLength="40"
               placeholder="E-mail"
             ></input>
-            <button
-              type="submit"
-              className={((name === onName) && (email === onEmail)) ? "profile__edit-button profile__edit-button_disabled" : "profile__edit-button"}
-              disabled={((name === onName) && (email === onEmail)) ? false : true}
-            >
-              Редактировать
-            </button>
-            <button
-              type="button"
-              className="profile__exit-button"
-              onClick={onLogout}
-            >
-              Выйти из аккаунта
-            </button>
+            <span className="form-error">{formErrors.email}</span>
+            {isEdit ? (
+              <button
+                type="submit"
+                className={`profile__save-button ${
+                  isEdit && "profile__save-button_unactive"
+                }`}
+                disabled={
+                  name === currentUser.name && email === currentUser.email
+                    ? true
+                    : false
+                }
+              >
+                Сохранить
+              </button>
+            ) : (
+              <>
+                <span
+                  className={
+                    success === "Данные профиля изменены"
+                      ? "profile__success-edit"
+                      : "profile__unsuccess-edit"
+                  }
+                >
+                  {success}
+                </span>
+                <button
+                  className="profile__edit-button"
+                  onClick={handleFormEdit}
+                >
+                  Редактировать
+                </button>
+                <button
+                  type="button"
+                  className="profile__exit-button"
+                  onClick={onLogout}
+                >
+                  Выйти из аккаунта
+                </button>
+              </>
+            )}
           </form>
         </section>
       </main>

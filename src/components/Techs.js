@@ -10,13 +10,27 @@ const Techs = () => {
             дипломном проекте.
           </p>
           <div className="button-information">
-            <button type="button" className="button">HTML</button>
-            <button type="button" className="button">CSS</button>
-            <button type="button" className="button">JS</button>
-            <button type="button" className="button">React</button>
-            <button type="button" className="button">Git</button>
-            <button type="button" className="button">Express.js</button>
-            <button type="button" className="button">mongoDB</button>
+            <button type="button" className="button">
+              HTML
+            </button>
+            <button type="button" className="button">
+              CSS
+            </button>
+            <button type="button" className="button">
+              JS
+            </button>
+            <button type="button" className="button">
+              React
+            </button>
+            <button type="button" className="button">
+              Git
+            </button>
+            <button type="button" className="button">
+              Express.js
+            </button>
+            <button type="button" className="button">
+              mongoDB
+            </button>
           </div>
         </div>
       </div>

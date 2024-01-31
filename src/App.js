@@ -2,7 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { CurrentUserContext } from "./contexts/CurrentUserContext";
-import getMovies from "./utils/MoviesApi";
 import Movies from "./components/Movies";
 import SavedMovies from "./components/SavedMovies";
 import Profile from "./components/Profile";
@@ -10,13 +9,12 @@ import Register from "./components/Register";
 import Login from "./components/Login";
 import Main from "./components/Main";
 import NotFound from "./components/NotFound";
-import { getSavedMovies } from "./utils/MainApi";
+import Preloader from "./components/Preloader";
 import * as MainApi from "./utils/MainApi";
 import { getToken, removeToken, setToken } from "./utils/Token";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
-  const [cards, setCards] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -24,36 +22,37 @@ function App() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [isRegister, setIsRegister] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState("");
 
   const token = getToken();
 
   useEffect(() => {
     if (token) {
-      Promise.all([MainApi.getCurrentUser(token), getSavedMovies()])
-        .then(([user, movies]) => {
-          if (user) {
-            setCurrentUser(user);
-            setEmail(user.email);
-            setName(user.name);
-            setLoggedIn({ ...user });
-            setSavedMovies(movies);
-            setIsRegister(true);
-          }
+      MainApi.getCurrentUser(token)
+        .then((user) => {
+          setCurrentUser(user);
+          setIsLoading(true);
+          setEmail(user.email);
+          setName(user.name);
+          setLoggedIn({ ...user });
+          setIsRegister(true);
+        })
+        .catch((err) => {
+          console.error(err);
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+      MainApi.getSavedMovies()
+        .then((movies) => {
+          setSavedMovies(movies);
         })
         .catch((err) => {
           console.error(err);
         });
     }
   }, [isRegister]);
-  useEffect(() => {
-    getMovies()
-      .then((res) => {
-        setCards(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
 
   function checkSavedMovies(movie) {
     return savedMovies.some(
@@ -62,62 +61,93 @@ function App() {
   }
 
   const deleteMovie = (movie) => {
+    setIsLoading(true);
     const movieId = movie._id;
     MainApi.deleteMovie(movieId)
       .then(() => {
+        setIsLoading(true);
         setSavedMovies((movie) => {
           return movie.filter((savedMovie) => savedMovie._id !== movieId);
         });
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
-
 
   function savedMovie(movie) {
     MainApi.saveMovie(movie)
       .then((movie) => {
         setSavedMovies([...savedMovies, movie]);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   function cbLogin(dataLogin) {
+    setIsLoading(true);
     MainApi.signin(dataLogin)
       .then((dataLogin) => {
+        setIsLoading(true);
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function cbRegister(dataRegister) {
     MainApi.signup(dataRegister)
       .then((dataRegister) => {
+        setIsLoading(true);
         setLoggedIn(dataRegister);
         setEmail(dataRegister.email);
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
   function cbLogout() {
+    setIsLoading(false);
     removeToken();
     setEmail("");
+    setIsRegister(false);
     setLoggedIn(null);
+    localStorage.removeItem("allMovies");
+    localStorage.removeItem("searchInputString");
+    localStorage.removeItem("isShort");
+    localStorage.removeItem("savedSearchInputString");
+    localStorage.removeItem("savedIsShort");
   }
 
   function editProfile(dataProfile) {
+    setIsLoading(true);
     MainApi.editUserProfile(dataProfile)
       .then((dataProfile) => {
+        setIsLoading(true);
         setEmail(dataProfile.email);
         setName(dataProfile.name);
+        setSuccess("Данные профиля изменены");
       })
       .catch((err) => {
+        setSuccess("Ошибка при сохранении");
         console.error(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
@@ -129,7 +159,9 @@ function App() {
     setIsOpenPopup(false);
   }
 
-  return (
+  return isLoading ? (
+    <Preloader />
+  ) : (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Routes>
@@ -137,6 +169,7 @@ function App() {
             path="/"
             element={
               <Main
+                isRegister={isRegister}
                 onClickMenuIsClose={closeAll}
                 onClickMenu={isOpenPopup}
                 onClickMenuIsOpen={handleClickMenuPopup}
@@ -148,9 +181,10 @@ function App() {
             element={
               <ProtectedRoute user={loggedIn} isRegister={isRegister}>
                 <Movies
+                  isRegister={isRegister}
                   onCheck={checkSavedMovies}
                   onSaved={savedMovie}
-                  cards={cards}
+                  cards={savedMovies}
                   onClickMenuIsClose={closeAll}
                   onClickMenu={isOpenPopup}
                   onClickMenuIsOpen={handleClickMenuPopup}
@@ -163,6 +197,7 @@ function App() {
             element={
               <ProtectedRoute user={loggedIn} isRegister={isRegister}>
                 <SavedMovies
+                  isRegister={isRegister}
                   onDelete={deleteMovie}
                   onCheck={checkSavedMovies}
                   cards={savedMovies}
@@ -178,6 +213,7 @@ function App() {
             element={
               <ProtectedRoute user={loggedIn} isRegister={isRegister}>
                 <Profile
+                  isRegister={isRegister}
                   onEdit={editProfile}
                   onEmail={email}
                   onName={name}
@@ -185,6 +221,7 @@ function App() {
                   onClickMenuIsClose={closeAll}
                   onClickMenu={isOpenPopup}
                   onClickMenuIsOpen={handleClickMenuPopup}
+                  success={success}
                 />
               </ProtectedRoute>
             }

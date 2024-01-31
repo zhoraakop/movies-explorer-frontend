@@ -103,3 +103,9 @@
 @import url(./blocks/search-form/__block/search-from__block.css);
 @import url(./blocks/saved/saved.css);
 @import url(./blocks/profile/__edit-button/_disabled/profile__edit-button_disabled.css);
+@import url(./blocks/movies-add/__button/_disabled/movies-add__button_disabled.css);
+@import url(./blocks/movies/__error/movies__error.css);
+@import url(./blocks/register/__input-form/_active/register__input-form_active.css);
+@import url(./blocks/form-error/form-error.css);
+@import url(./blocks/profile/__save-button/profile__save-button.css);
+@import url(./blocks/profile/__save-button/_unactive/profile__save-button_unactive.css);

@@ -1,7 +1,7 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NotFound() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <main className="error">
       <h1 className="error__title">404</h1>

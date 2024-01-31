@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const NavTab = () => {
   return (
     <ul className="button-information">

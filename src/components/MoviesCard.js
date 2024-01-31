@@ -17,7 +17,9 @@ function MoviesCard({ card, onSaved, onCheck, onDelete }) {
         alt={card.image.name}
         className="movies__image-card"
         src={
-          page.pathname === '/movies' ? `https://api.nomoreparties.co${card.image.url}` : card.image
+          page.pathname === "/movies"
+            ? `https://api.nomoreparties.co${card.image.url}`
+            : card.image
         }
       />
       <h2 className="movies__title-card">{card.nameRU}</h2>
@@ -29,22 +31,17 @@ function MoviesCard({ card, onSaved, onCheck, onDelete }) {
         </p>
       </div>
       {page.pathname === "/movies" && saved === true ? (
-          <img
-            alt="Галочка"
-            className="movies__button-card_ok"
-            src={okButton}
-          />
-        ) : (
-          <button
-            type="button"
-            className="movies__button-card"
-            onClick={handleSavedMovie}
-          >
-            Сохранить
-          </button>
-        )
-      }
-       {page.pathname === "/saved-movies"  && (
+        <img alt="Галочка" className="movies__button-card_ok" src={okButton} />
+      ) : (
+        <button
+          type="button"
+          className="movies__button-card"
+          onClick={handleSavedMovie}
+        >
+          Сохранить
+        </button>
+      )}
+      {page.pathname === "/saved-movies" && (
         <img
           alt="Удаление"
           className="movies__button-card_delete"
