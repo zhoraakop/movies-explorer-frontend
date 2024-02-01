@@ -12,6 +12,10 @@ function Profile({
   onEdit,
   success,
   isRegister,
+  setEmail,
+  setName,
+  onName,
+  onEmail
 }) {
   const logReg = true;
   const { formErrors, setFormIsValid } = useForm();
@@ -19,20 +23,17 @@ function Profile({
   const currentUser = useContext(CurrentUserContext);
   const [isEdit, setIsEdit] = useState(false);
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-
   function handleSubmit(evt) {
     evt.preventDefault();
     setFormIsValid(evt.target.closest("form").checkValidity());
     setFormIsValid(false);
     setIsEdit(false);
-    if (!name && !email) {
+    if (!onName && !onEmail) {
       return;
     }
     onEdit({
-      name: name,
-      email: email,
+      name: onName,
+      email: onEmail,
     });
   }
 
@@ -44,9 +45,9 @@ function Profile({
   }
 
   useEffect(() => {
-    setName(currentUser.name);
-    setEmail(currentUser.email);
-  }, [currentUser]);
+    setName(onName);
+    setEmail(onEmail);
+  }, []);
 
   const handleFormEdit = (e) => {
     e.preventDefault();
@@ -64,12 +65,12 @@ function Profile({
       />
       <main className="content">
         <section className="profile">
-          <h1 className="profile__title">{`Привет, ${name}!`}</h1>
+          <h1 className="profile__title">{`Привет, ${onName}!`}</h1>
           <form className="profile__form" onSubmit={handleSubmit}>
             <p className="profile__title-form">Имя</p>
             <input
               className="profile__input-form profile__input-name"
-              value={name ? name : ""}
+              value={onName ? onName : ""}
               onChange={handleChangeName}
               disabled={!isEdit}
               type="text"
@@ -77,12 +78,12 @@ function Profile({
               maxLength="40"
               placeholder="Имя"
             ></input>
-            <span className="form-error">{formErrors.name}</span>
+            <span className="form-error">{formErrors.onName}</span>
             <div className="border"></div>
             <p className="profile__subtitle-form">E-mail</p>
             <input
               className="profile__input-form profile__input-email"
-              value={email ? email : ""}
+              value={onEmail ? onEmail : ""}
               onChange={handleChangeEmail}
               pattern={emailRegex}
               disabled={!isEdit}
@@ -91,7 +92,7 @@ function Profile({
               maxLength="40"
               placeholder="E-mail"
             ></input>
-            <span className="form-error">{formErrors.email}</span>
+            <span className="form-error">{formErrors.onEmail}</span>
             {isEdit ? (
               <button
                 type="submit"
@@ -99,7 +100,7 @@ function Profile({
                   isEdit && "profile__save-button_unactive"
                 }`}
                 disabled={
-                  name === currentUser.name && email === currentUser.email
+                  onName === currentUser.name && onEmail === currentUser.email
                     ? true
                     : false
                 }

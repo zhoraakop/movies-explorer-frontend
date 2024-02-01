@@ -9,7 +9,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Login({ onLogin, errorText }) {
   const log = true;
 
-  const { formValues, formErrors, handleChange, setFormValues, formIsValid } =
+  const { formValues, formErrors, handleChange, setFormValues, formIsValid, setFormIsValid } =
     useForm();
 
   const currentUser = useContext(CurrentUserContext);
@@ -20,6 +20,7 @@ function Login({ onLogin, errorText }) {
     });
   }, [setFormValues, currentUser]);
   function handleSubmit(evt) {
+    setFormIsValid(false);
     evt.preventDefault();
     onLogin({ email: formValues.email, password: formValues.password });
   }

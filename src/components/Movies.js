@@ -7,6 +7,7 @@ import getMovies from "../utils/MoviesApi";
 import { useLocation } from "react-router-dom";
 import Preloader from "./Preloader";
 import { DURATION } from "../utils/const";
+import Profile from "./Profile";
 
 function Movies({
   onClickMenu,
@@ -17,9 +18,9 @@ function Movies({
   cards,
   isRegister,
   onDelete,
-  savedMovies,
   setIsLoading,
-  isLoading
+  isLoading,
+  setCards
 }) {
   const logReg = true;
   const { pathname } = useLocation();
@@ -36,14 +37,18 @@ function Movies({
   const [isValid, setIsValid] = useState(true);
   const [serverError, setServerError] = useState(false);
 
+
+function updateCards(){
+  setAllMovies(JSON.parse(localStorage.getItem("allMovies")))
+}
+
   const handleSearch = (e) => {
     e.preventDefault();
+    setIsLoading(true);
     searchMovies(search);
-    setIsLoading(false)
   };
 
   function search(e) {
-    setIsLoading(true);
     const value = e.target.value;
     setSearchInputString(value);
     localStorage.setItem("searchInputString", value);
@@ -52,6 +57,7 @@ function Movies({
   function searchMovies() {
     if (!searchInputString) {
       setIsValid(false);
+      setIsLoading(false);
     }
     if (allMovies.length === 0 && searchInputString) {
       getMovies()
@@ -60,6 +66,7 @@ function Movies({
           setAllMovies(res);
           setServerError(false);
           localStorage.setItem("allMovies", JSON.stringify(res));
+          setIsLoading(false);
         })
         .catch((err) => {
           setServerError(true);
@@ -76,11 +83,14 @@ function Movies({
       isShort
         ? movie.nameRU
             .toLowerCase()
-            .includes(searchInputString.toLowerCase()) && movie.duration <= DURATION
+            .includes(searchInputString.toLowerCase()) &&
+          movie.duration <= DURATION
         : movie.nameRU.toLowerCase().includes(searchInputString.toLowerCase())
     );
 
     setFiltredMovies(filtredMovies);
+
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -112,15 +122,16 @@ function Movies({
           isValid={isValid}
           serverError={serverError}
         />
-        {isLoading ? (<Preloader />) : (
+        {isLoading ? (
+          <Preloader />
+        ) : (
           <MoviesCardList
-            savedMovies={savedMovies}
+            update={updateCards}
             onDelete={onDelete}
             cards={filtredMovies}
             onSaved={onSaved}
             onCheck={onCheck}
           />
-
         )}
         {serverError && (
           <div className="movies__error">
@@ -130,12 +141,14 @@ function Movies({
         )}
 
         {(filtredMovies.length === 0 ||
-          (filtredMovies.length === 0 && cards.length !== 0)) && isLoading !== true &&
+          (filtredMovies.length === 0 && cards.length !== 0)) &&
+          isLoading !== true &&
           localStorage.allMovies && (
             <div className="movies__error">Ничего не найдено.</div>
           )}
 
-        {filtredMovies.length === 0 && isLoading !== true &&
+        {filtredMovies.length === 0 &&
+          isLoading !== true &&
           pathname === "/movies" &&
           !localStorage.allMovies && (
             <div className="movies__error">

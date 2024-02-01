@@ -37,8 +37,8 @@ export const logout = () => {
     headers: {
       "Content-Type": "application/json",
     },
-  }).then((res) => {
-    return check(res);
+  }).then(() => {
+    return false
   });
 };
 

@@ -26,10 +26,13 @@
 }
 
 @media screen and (max-width: 767px) {
-    .movies__button-card{
+    .all .movies__button-card{
         top: 10px;
         right: 10px;
-
+        visibility: visible;
+    }
+    .all .movies__button-card:hover{
+        opacity: 0.8;
     }
     
 }

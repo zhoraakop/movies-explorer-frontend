@@ -13,10 +13,10 @@ function SavedMovies({
   onDelete,
   onSaved,
   cards,
-  isRegister
+  isRegister,
+  setCards,
 }) {
   const logReg = true;
-  const [savedMovies, setSavedMovies] = useState([]);
   const [searchInputString, setSearchInputString] = useState(
     localStorage.getItem("savedSearchInputString") || ""
   );
@@ -28,8 +28,9 @@ function SavedMovies({
   const pathname = useLocation();
 
   useEffect(() => {
-      setSavedMovies(cards.reverse());
+      setCards(cards.reverse());
   }, []);
+
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -52,7 +53,7 @@ function SavedMovies({
   }
 
   function handleSubmitSearch() {
-    const filtredMovies = savedMovies.filter((movie) =>
+    const filtredMovies = cards.filter((movie) =>
       isShort
         ? movie.nameRU
             .toLowerCase()
@@ -66,7 +67,7 @@ function SavedMovies({
   useEffect(() => {
     handleSubmitSearch();
     setIsValid(true);
-  }, [savedMovies, isShort]);
+  }, [cards, isShort]);
 
   function checkShort(e) {
     const value = e.target.checked;
@@ -101,7 +102,7 @@ function SavedMovies({
           onCheck={onCheck}
           onDelete={onDelete}
         />
-        {savedMovies.length === 0 && (
+        {cards.length === 0 && (
         <div className='movies__error'>Список сохранённых фильмов пуст.</div>
       )}
       </main>

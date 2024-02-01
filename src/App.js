@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import { CurrentUserContext } from "./contexts/CurrentUserContext";
@@ -13,9 +13,12 @@ import Preloader from "./components/Preloader";
 import * as MainApi from "./utils/MainApi";
 import { getToken, removeToken, setToken } from "./utils/Token";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Cookies from "js-cookie";
+
 
 function App() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const pathname = useLocation();
   const [currentUser, setCurrentUser] = useState({});
   const [savedMovies, setSavedMovies] = useState([]);
   const [isOpenPopup, setIsOpenPopup] = useState(false);
@@ -51,6 +54,11 @@ function App() {
     }
   }, [isRegister]);
 
+  useEffect(() => {
+    setErrorText('');
+    setSuccess('');
+  }, [pathname]);
+
   function checkSavedMovies(movie) {
     return savedMovies.some(
       (i) => i._id === movie._id || i.movieId === movie.id
@@ -63,23 +71,24 @@ function App() {
     if(movieId !== undefined){
       MainApi.deleteMovie(movieId)
         .then(() => {
-          setSavedMovies((movie) => {
-            return movie.filter((savedMovie) => savedMovie._id !== movieId) ;
+          setSavedMovies((oldMovies) => {
+            console.log(oldMovies.filter((item) => item._id !== movieId))
+            return oldMovies.filter((item) => item._id !== movieId) ;
           });
         })
         .catch((err) => {
           console.error(err);
         })
     }else{
-      savedMovies.map(card => {
+      savedMovies.map((card) => {
         console.log(card)
         if(card.movieId === movieID){
           const newId = card._id;
 
-          return MainApi.deleteMovie(newId)
+          MainApi.deleteMovie(newId)
             .then(() => {
-              setSavedMovies((movie) => {
-                return movie.filter((savedMovie) => savedMovie.id !== newId) ;
+              setSavedMovies((oldMovie) => {
+                return oldMovie.filter((savedMovie) => savedMovie.id !== newId) ;
               });
             })
             .catch((err) => {
@@ -93,7 +102,6 @@ function App() {
   function savedMovie(movie) {
     MainApi.saveMovie(movie)
       .then((movie) => {
-        console.log('movie', movie)
         setSavedMovies([...savedMovies, movie]);
       })
       .catch((err) => {
@@ -104,8 +112,9 @@ function App() {
   function cbLogin(dataLogin) {
     setIsLoading(true);
     MainApi.signin(dataLogin.email, dataLogin.password)
-      .then((dataLogin) => {
+      .then(() => {
         setErrorText('');
+        setName(dataLogin.name);
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
         setIsRegister(true);
@@ -119,10 +128,11 @@ function App() {
 
   function cbRegister(dataRegister) {
     MainApi.signup(dataRegister.email, dataRegister.password, dataRegister.name)
-      .then((data) => {
+      .then(() => {
         setErrorText('');
-        setLoggedIn(data);
-        setEmail(data.email);
+        setLoggedIn(dataRegister);
+        setName(dataRegister.name);
+        setEmail(dataRegister.email);
         cbLogin(dataRegister)
         setIsRegister(true);
       })
@@ -133,17 +143,20 @@ function App() {
   }
 
   function cbLogout() {
-    removeToken();
-    setEmail("");
-    setIsRegister(false);
-    setLoggedIn(null);
-    
-    localStorage.removeItem("allMovies");
-    localStorage.removeItem("searchInputString");
-    localStorage.removeItem("isShort");
-    localStorage.removeItem("savedSearchInputString");
-    localStorage.removeItem("savedIsShort");
-    navigate('/');
+    MainApi.logout()
+    .then(() => {
+      removeToken();
+      setEmail("");
+      setIsRegister(false);
+      setLoggedIn(null);
+      localStorage.removeItem("allMovies");
+      localStorage.removeItem("searchInputString");
+      localStorage.removeItem("isShort");
+      localStorage.removeItem("savedSearchInputString");
+      localStorage.removeItem("savedIsShort");
+      navigate('/');
+
+    })
   }
 
   function editProfile(dataProfile) {
@@ -186,8 +199,9 @@ function App() {
           <Route
             path="/movies"
             element={
-              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+              <ProtectedRoute user={currentUser} isRegister={isRegister}>
                 <Movies
+                  setCards={setSavedMovies}
                   setIsLoading={setIsLoading}
                   isLoading={isLoading}
                   setSavedMovies={setSavedMovies}
@@ -206,8 +220,9 @@ function App() {
           <Route
             path="/saved-movies"
             element={
-              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+              <ProtectedRoute user={currentUser} isRegister={isRegister}>
                 <SavedMovies
+                  setCards={setSavedMovies}
                   isRegister={isRegister}
                   onDelete={deleteMovie}
                   onCheck={checkSavedMovies}
@@ -222,12 +237,14 @@ function App() {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute user={loggedIn} isRegister={isRegister}>
+              <ProtectedRoute user={currentUser} isRegister={isRegister}>
                 <Profile
                   isRegister={isRegister}
                   onEdit={editProfile}
                   onEmail={email}
                   onName={name}
+                  setEmail={setEmail}
+                  setName={setName}
                   onLogout={cbLogout}
                   onClickMenuIsClose={closeAll}
                   onClickMenu={isOpenPopup}
@@ -241,7 +258,7 @@ function App() {
             path="/signin"
             element={
               <ProtectedRoute
-                user={loggedIn}
+                user={currentUser}
                 onlyUnAuth
                 isRegister={isRegister}
               >
@@ -254,7 +271,7 @@ function App() {
             path="/signup"
             element={
               <ProtectedRoute
-                user={loggedIn}
+                user={currentUser}
                 onlyUnAuth
                 isRegister={isRegister}
               >

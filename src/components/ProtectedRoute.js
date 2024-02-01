@@ -1,20 +1,22 @@
 import { Navigate, useLocation } from "react-router-dom";
 
-const ProtectedRoute = ({ children, user, onlyUnAuth, isRegister }) => {
+const ProtectedRoute = ({ children, user, onlyUnAuth }) => {
   const location = useLocation();
-  console.log('isreg', isRegister);
-  console.log('onlyauth', onlyUnAuth);
-  console.log('user', user);
-  console.log('children', children)
-  if (!onlyUnAuth && !user) {
-    return <Navigate to={{ pathname: "/" }} />;
+
+  if (onlyUnAuth && user?.email) {
+    const from = location.state?.from || { pathname: "/movies" };
+    return <Navigate to={from} />;
   }
-  if (onlyUnAuth && user && isRegister) {
-    return children;
+
+  if (!onlyUnAuth && !user?.email) {
+    return (
+      <Navigate
+        to={{ pathname: "/signin" }}
+        state={{ from: location }}
+      />
+    );
   }
-  if (onlyUnAuth && user && !isRegister) {
-    return children;
-  }
+
   return children;
 };
 

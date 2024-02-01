@@ -8,7 +8,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 function Register({ onRegister, errorText }) {
   const reg = true;
 
-  const { formIsValid, formValues, formErrors, handleChange, setFormValues } =
+  const { formIsValid, formValues, formErrors, handleChange, setFormValues, setFormIsValid } =
     useForm();
 
   const currentUser = useContext(CurrentUserContext);
@@ -22,6 +22,7 @@ function Register({ onRegister, errorText }) {
   }, [setFormValues, currentUser]);
 
   const handleSubmit = (e) => {
+    setFormIsValid(false);
     e.preventDefault();
     onRegister({
       name: formValues.name,

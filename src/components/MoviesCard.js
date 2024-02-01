@@ -1,16 +1,24 @@
 import { useLocation } from "react-router-dom";
 import deleteButton from "../images/deleteButton.svg";
 import okButton from "../images/save3.svg";
+import { useState } from "react";
 
-function MoviesCard({ card, onSaved, onCheck, onDelete, savedMovies }) {
+function MoviesCard({ card, onSaved, onCheck, onDelete, update }) {
   const page = useLocation();
-  const saved = onCheck(card);
+  const saved = onCheck(card)
+  const [isSaved, setIsSaved] = useState(true)
   function handleDeleteMovie() {
-    console.log(card)
     onDelete(card);
+  }
+
+  function handleDelete(){
+    onDelete(card);
+    setIsSaved(false);
+    update();
   }
   function handleSavedMovie() {
     onSaved(card);
+    setIsSaved(true)
   }
   return (
     <div className="movies__card">
@@ -33,8 +41,8 @@ function MoviesCard({ card, onSaved, onCheck, onDelete, savedMovies }) {
             : `${Math.round(card.duration / 60)}ч ${card.duration % 60}м`}
         </p>
       </div>
-      {page.pathname === "/movies" && saved === true ? (
-        <img alt="Галочка" className="movies__button-card_ok" src={okButton} onClick={handleDeleteMovie}/>
+      {page.pathname === "/movies" && saved === true && isSaved === true ? (
+        <img alt="Галочка" className="movies__button-card_ok" src={okButton} onClick={handleDelete}/>
       ) : (
         <button
           type="button"
