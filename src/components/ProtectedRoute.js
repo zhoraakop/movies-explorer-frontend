@@ -16,7 +16,6 @@ const ProtectedRoute = ({ children, user, onlyUnAuth }) => {
       />
     );
   }
-
   return children;
 };
 

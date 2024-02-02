@@ -114,6 +114,7 @@ function App() {
     MainApi.signin(dataLogin.email, dataLogin.password)
       .then(() => {
         setErrorText('');
+        setCurrentUser(dataLogin)
         setName(dataLogin.name);
         setToken(dataLogin.token);
         setLoggedIn(dataLogin);
@@ -149,6 +150,7 @@ function App() {
       setEmail("");
       setIsRegister(false);
       setLoggedIn(null);
+      setCurrentUser({}) 
       localStorage.removeItem("allMovies");
       localStorage.removeItem("searchInputString");
       localStorage.removeItem("isShort");
