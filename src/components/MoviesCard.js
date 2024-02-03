@@ -1,29 +1,65 @@
-import film_one from "../images/pic__COLOR_pic.svg";
+import { useLocation } from "react-router-dom";
 import deleteButton from "../images/deleteButton.svg";
 import okButton from "../images/save3.svg";
-import film_two from "../images/pic__COLOR2_pic.svg";
-import film_three from "../images/pic__COLOR3_pic.svg";
-import film_four from "../images/pic__COLOR4_pic.svg";
-import film_five from "../images/pic__COLOR5_pic.svg";
-import film_six from "../images/pic__COLOR6_pic.svg";
-import film_seven from "../images/pic__COLOR7_pic.svg";
-import film_eight from "../images/pic__COLOR8_pic.svg";
-import film_nine from "../images/pic__COLOR9_pic.svg";
-import film_ten from "../images/pic__COLOR10_pic.svg";
-import film_eleven from "../images/pic__COLOR11_pic.svg";
-import film_twelve from "../images/pic__COLOR12_pic.svg";
+import { useState } from "react";
 
-function MoviesCard() {
+function MoviesCard({ card, onSaved, onCheck, onDelete, update }) {
+  const page = useLocation();
+  const saved = onCheck(card)
+  const [isSaved, setIsSaved] = useState(true)
+  function handleDeleteMovie() {
+    onDelete(card);
+  }
+
+  function handleDelete(){
+    onDelete(card);
+    setIsSaved(false);
+    update();
+  }
+  function handleSavedMovie() {
+    onSaved(card);
+    setIsSaved(true)
+  }
   return (
     <div className="movies__card">
-      <img alt="Фильм" className="movies__image-card" src={film_one} />
-      <h2 className="movies__title-card">33 слова о дизайне</h2>
+      <a className="movies__link-card" href={card.trailerLink} target="_blank" rel='noreferrer'>
+        <img
+          alt={card.image.name}
+          className="movies__image-card"
+          src={
+            page.pathname === "/movies"
+              ? `https://api.nomoreparties.co${card.image.url}`
+              : card.image
+          }
+        />
+      </a>
+      <h2 className="movies__title-card">{card.nameRU}</h2>
       <div className="movies__background-card">
-        <p className="movies__subtitle-card">1ч 17м</p>
+        <p className="movies__subtitle-card">
+          {card.duration / 60 === 0
+            ? `${card.duration}м`
+            : `${Math.round(card.duration / 60)}ч ${card.duration % 60}м`}
+        </p>
       </div>
-      <img alt="Галочка" className="movies__button-card_ok" src={deleteButton} />
-      <img alt="Удаление" className="movies__button-card_delete" src={deleteButton} />
-      <button type="button" className="movies__button-card">Сохранить</button>
+      {page.pathname === "/movies" && saved === true && isSaved === true ? (
+        <img alt="Галочка" className="movies__button-card_ok" src={okButton} onClick={handleDelete}/>
+      ) : (
+        <button
+          type="button"
+          className="movies__button-card"
+          onClick={handleSavedMovie}
+        >
+          Сохранить
+        </button>
+      )}
+      {page.pathname === "/saved-movies" && (
+        <img
+          alt="Удаление"
+          className="movies__button-card_delete"
+          src={deleteButton}
+          onClick={handleDeleteMovie}
+        />
+      )}
     </div>
   );
 }

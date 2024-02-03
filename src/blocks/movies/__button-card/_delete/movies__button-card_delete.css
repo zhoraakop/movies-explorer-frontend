@@ -12,11 +12,15 @@
     opacity: 0.8;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) {
     .movies__button-card_delete{
         top: 10px;
         right: 10px;
+        visibility: visible;
 
+    }
+    .saved .movies__button-card_delete:hover{
+        opacity: 0.8;
     }
     
 }

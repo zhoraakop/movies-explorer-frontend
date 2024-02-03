@@ -1,35 +1,40 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../images/logo.svg";
-const log = false;
-const reg = false;
-const logReg = true;
 
-function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, logReg}) {
+function Header({
+  onClickMenu,
+  onClickMenuIsOpen,
+  onClickMenuIsClose,
+  log,
+  reg,
+  logReg,
+  isRegister,
+}) {
+  const main = isRegister ? true : false;
+
   return (
     <>
       {!logReg && reg && !log ? (
         <header className="header-register">
           <div className="header-register__block">
-
-          <Link to="/" className="header-register__image">
-            <img alt="Лого" src={logo} />
-          </Link>
-          <h2 className="header-register__title">Добро пожаловать!</h2>
+            <Link to="/" className="header-register__image">
+              <img alt="Лого" src={logo} />
+            </Link>
+            <h2 className="header-register__title">Добро пожаловать!</h2>
           </div>
         </header>
       ) : null}
       {!logReg && !reg && log ? (
         <header className="header-register">
           <div className="header-register__block">
-
-          <Link to="/" className="logo header-register__image">
-            <img alt="Лого" src={logo} />
-          </Link>
-          <h2 className="header-register__title">Рады видеть!</h2>
+            <Link to="/" className="logo header-register__image">
+              <img alt="Лого" src={logo} />
+            </Link>
+            <h2 className="header-register__title">Рады видеть!</h2>
           </div>
         </header>
       ) : null}
-      {!logReg && !reg && !log ? (
+      {!logReg && !reg && !log && !main ? (
         <header className="header">
           <nav className="header__navigation">
             <Link to="/" className="header__image">
@@ -41,11 +46,10 @@ function Header({ onClickMenu, onClickMenuIsOpen, onClickMenuIsClose, log, reg, 
             <Link to="/signin" className="header__button">
               Войти
             </Link>
-
           </nav>
         </header>
       ) : null}
-      {logReg ? (
+      {logReg || main ? (
         <header className="header">
           <Link to="/" className="header__image">
             <img alt="Лого" src={logo} />

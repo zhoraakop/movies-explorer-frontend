@@ -11,6 +11,14 @@
     margin: 178px auto 70px auto;
 }
 
+.register__error-block {
+    color: #ff004c;
+    text-align: center;
+    display: block;
+    font-size: 14px;
+    margin: 0 auto 4px auto;
+  }
+
 @media screen and (max-width: 1023px) {
     .register__block{
         margin-bottom: 232px;

@@ -1,0 +1,13 @@
+.movies__error {
+    color: #a0a0a0;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    .movies__error{
+      font-size: 12px;
+    }
+    
+}

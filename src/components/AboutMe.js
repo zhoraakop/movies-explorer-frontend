@@ -26,13 +26,11 @@ const AboutMe = () => {
           >
             Github
           </a>
-
         </div>
-
       </div>
       <p className="portfolio__title-block">Портфолио</p>
 
-          <Portfolio />
+      <Portfolio />
     </section>
   );
 };
